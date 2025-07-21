@@ -7,6 +7,10 @@ const Resume = () => {
   const [experience, setExperience] = useState(true)
   const [education, setEducation] = useState(false)
   const [skill, setSkill] = useState(false)
+  const [about, setAbout] = useState(false)
+
+
+  const [activeSection, setActiveSection] = useState('experience');
 
   // const toggle = () => {
   //   setEducation(!education)
@@ -24,49 +28,40 @@ const Resume = () => {
 
 
           <div
-            onClick={() => setExperience(!experience)}
-            className='px-14 py-2 w-[220px] text-center cursor-pointer'
-            style={{
-              background: experience ? "red" : "blue"
-            }}>
+            onClick={() => setActiveSection('experience')}
+            className={`px-14 py-2 w-[220px] text-center cursor-pointer ${activeSection === 'experience' ? 'bg-blue-500':'bg-red-500'}`}>
             <p>Experience</p>
           </div>
 
 
           <div
-            onClick={() => setEducation(!education)}
-            className='px-14 py-2 w-[220px] text-center cursor-pointer'
-            style={{
-              background: education ? "red" : "blue"
-            }}>
+            onClick={() => setActiveSection('education')}
+             className={`px-14 py-2 w-[220px] text-center cursor-pointer ${activeSection === 'education' ? 'bg-blue-500':'bg-red-500'}`}>
             <p>Education</p>
           </div>
 
 
 
           <div
-            onClick={() => setSkill(!skill)}
-            className='px-14 py-2 w-[220px] text-center cursor-pointer'
-            style={{
-              background: skill ? "red" : "blue"
-            }}>
+            onClick={() => setActiveSection('skill')}
+             className={`px-14 py-2 w-[220px] text-center cursor-pointer ${activeSection === 'skill' ? 'bg-blue-500':'bg-red-500'}`}>
             <p>Skills</p>
           </div>
 
 
 
-
-
-
-          <div className=' bg-gray-700 px-14 py-2 w-[220px] text-center'>
+          <div
+            onClick={() => setActiveSection('about')}
+             className={`px-14 py-2 w-[220px] text-center cursor-pointer ${activeSection === 'about' ? 'bg-blue-500':'bg-red-500'}`}>
             <p>About me</p>
           </div>
+
         </div>
       </div>
 
 
 
-      {/* {experience && (
+      {activeSection === 'experience' && (
         <div className=' '>
           <div>
             <h2>My expereience</h2>
@@ -142,14 +137,14 @@ const Resume = () => {
             </div>
           </div>
         </div>
-      )} */}
+      )}
 
 
 
-      {/* {education && (
+      {activeSection === 'education' && (
         <div className=' '>
           <div>
-            <h2>My expereience</h2>
+            <h2>My Education</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicingt modi tempora nisi.</p>
           </div>
 
@@ -222,9 +217,11 @@ const Resume = () => {
             </div>
           </div>
         </div>
-      )} */}
+      )}
 
-      {skill && (
+
+
+      {activeSection === 'skill' && (
         <div>
           <div>
             <h2>My Skills</h2>
@@ -261,6 +258,28 @@ const Resume = () => {
 
 
 
+      {activeSection ==='about' && (
+        <div>
+          <div>
+            <h2>About me</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, voluptate.</p>
+          </div>
+          <div className=' flex gap-14'>
+            <div>
+              <p>Name <span>Ahmed Suleiman</span></p>
+              <p>Name <span>Ahmed Suleiman</span></p>
+              <p>Name <span>Ahmed Suleiman</span></p>
+              <p>Name <span>Ahmed Suleiman</span></p>
+            </div>
+            <div>
+              <p>Name <span>Ahmed Suleiman</span></p>
+              <p>Name <span>Ahmed Suleiman</span></p>
+              <p>Name <span>Ahmed Suleiman</span></p>
+              <p>Name <span>Ahmed Suleiman</span></p>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   )
