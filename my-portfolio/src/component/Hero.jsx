@@ -8,8 +8,8 @@ const Hero = () => {
       <div className=' border-2 '>
         <div className=' '>
           <h4>Software Developer</h4>
-          <h2 className=' text-6xl font-semibold tracking-[3px]'>Hello I'm </h2>
-          <h2 className=' text-6xl font-semibold tracking-[3px]'>Ahmed Suleiman</h2>
+          <h2 className=' text-6xl font-semibold '>Hello I'm </h2>
+          <h2 className=' text-6xl font-semibold '>Ahmed Suleiman</h2>
         </div>
         <div className=' w-[90%]'>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis at quod necessitatibus itaque aut quae, adipisci magnam provident suscipit corrupti!</p>
