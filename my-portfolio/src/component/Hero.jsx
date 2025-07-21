@@ -4,13 +4,14 @@ import Photo from '../assets/photo.png'
 
 const Hero = () => {
   return (
-    <div className=' width border-amber-500 border-2 flex justify-center items-center'>
-      <div>
-        <div>
+    <div className=' width border-amber-500 border-2 flex justify-center items-center py-10'>
+      <div className=' border-2 '>
+        <div className=' '>
           <h4>Software Developer</h4>
-          <h2>Hello I'm Ahmed Suleiman</h2>
+          <h2 className=' text-6xl font-semibold tracking-[3px]'>Hello I'm </h2>
+          <h2 className=' text-6xl font-semibold tracking-[3px]'>Ahmed Suleiman</h2>
         </div>
-        <div>
+        <div className=' w-[90%]'>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis at quod necessitatibus itaque aut quae, adipisci magnam provident suscipit corrupti!</p>
           <div className=' flex bg-red-700 gap-6'>
             <button className=' flex  items-center gap-2'>
@@ -34,7 +35,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className=' border-green-600 border-2 rounded-full'>
+      <div className=' border-green-600 border-2 rounded-full w-[80%]'>
         <img src={Photo} alt="" />
       </div>
     </div>

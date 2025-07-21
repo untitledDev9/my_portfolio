@@ -1,11 +1,17 @@
 @import "tailwindcss";
 
+*{
+  box-sizing: border-box;
+}
+
 body {
   background-color: #1C1B22;
 }
 
 .width {
   background-color: bisque;
-  max-width: 1080px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 5px auto;
+
+  border: 2px solid rgb(255, 255, 255);
 }
