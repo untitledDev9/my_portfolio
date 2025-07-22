@@ -39,7 +39,7 @@ const Resume = () => {
           <div
             onClick={() => setActiveSection('education')}
             className={`text-[#BDBDC1] py-3 w-full rounded-xl text-center cursor-pointer ${activeSection === 'education' ? 'bg-[#00FD9A] text-black' : 'bg-[#28272B]'}`}>
-            <p>Education</p>
+            <p>Training</p>
           </div>
 
           <div
@@ -56,7 +56,7 @@ const Resume = () => {
 
         </div>
       </div>
-      <div className=' bg-amber-300 w-[60%]'>
+      <div className=' w-[60%]'>
         {activeSection === 'experience' && (
           <Experience />
         )}

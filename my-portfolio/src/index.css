@@ -36,7 +36,7 @@ body {
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-  background-color: #3bf651;
+  background-color: #00fd9c31 ;
   /* blue-500 */
 
 }
