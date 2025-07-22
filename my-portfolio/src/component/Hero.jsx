@@ -10,8 +10,8 @@ const Hero = () => {
     max-tablet:flex-col-reverse max-tablet:gap-8 max-tablet:pt-10
     max-mobile:gap-6 max-mobile:pt-4
     '>
-      <div className=' '>
-        <div className=' mb-3 max-tablet:text-center'>
+      <div className=' flex flex-col gap-4'>
+        <div className=' mb-3 max-tablet:text-center flex flex-col gap-2'>
           <h4 className=' text-[#BDBDC1] text-[14px]
           max-tablet:text-[19px]
           max-mobile:text-[17px]

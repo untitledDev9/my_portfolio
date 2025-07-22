@@ -7,7 +7,7 @@ const About = () => {
         <h2 className='text-white text-[43px] max-Laptop:text-[40px]'>About me</h2>
         <p className=' text-[14px] text-[#BDBDC1] leading-7 
         max-Laptop:text-[13px] max-Laptop:leading-5
-        '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, voluptate.</p>
+        '>I make smooth, fast web interfaces and enjoy turning ideas into real things. Always learning, always building..</p>
       </div>
       <div className=' flex gap-14 mt-10 max-Laptop:gap-10 max-mobile:gap-6'>
         <div className='text-[13px] text-[#BDBDC1] flex flex-col gap-5 max-mobile:text-[11px]'>

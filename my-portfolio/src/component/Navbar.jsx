@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { CgMenuMotion } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
+import logo from '../../public/untitled-logo.png'
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false)
@@ -19,8 +20,8 @@ const Navbar = () => {
   return (
     <div className='max-mobile:px-2'>
     <main className='width flex justify-between items-center h-20 '>
-      <div>
-        <h1 className=' font-bold text-2xl text-white cursor-pointer'>Ahmed<span className=' text-[#00FD9A]'>.</span></h1>
+      <div className=' flex items-center gap-1 w-[35px]'>
+        <img src={logo} alt="" />
       </div>
       <div className=' text-[13px] flex items-center gap-5 text-white max-mobile:hidden'>
         <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Home</p>
