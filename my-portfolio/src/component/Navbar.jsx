@@ -33,7 +33,7 @@ const Navbar = () => {
       </div>
       <div className=' hidden max-mobile:block'
         onClick={() => setMenu(!menu)}>
-       {menu ? <AiOutlineClose size={25} color='red'/> : <CgMenuMotion size={30} color='white' /> }  
+       {menu ? <AiOutlineClose size={25} color='red'/> : <CgMenuMotion size={30} color='#00FD9A' /> }  
       </div>
 
      
