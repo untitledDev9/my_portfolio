@@ -62,7 +62,7 @@ const Experience = () => {
 
   return (
     <div className='width flex items-center justify-center gap-10 text-white mt-14
-    max-mobile:grid max-mobile:gap-5 max-mobile:place-items-center max-mobile:text-center
+    max-mobile:grid max-mobile:grid-cols-2 max-mobile:gap-2max-mobile:place-items-center max-mobile:text-center
     '>
       <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1'>
         <p className='font-bold text-[56px] max-mobile:text-[50px]'>{String(counts.experience).padStart(2, '0')}</p>

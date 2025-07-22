@@ -22,11 +22,11 @@ const Resume = () => {
 
 
   return (
-    <div className=' width flex justify-between mt-20 gap-22 mb-48'>
-      <div className=' w-[40%]'>
-        <div>
-          <h2 className=' text-[55px] text-white w-[400px]'>Why hire me?</h2>
-          <p className=' text-[#BDBDC1] w-[80%] mb-8 mt-5 leading-8'>Clean code, quick solutions, always learning, always improving.</p>
+    <div className=' width flex justify-between mt-20 gap-22 mb-48 max-tablet:flex-col max-tablet:items-center max-tablet:gap-10'>
+      <div className=' w-[40%] max-tablet:w-full max-tablet:flex max-tablet:flex-col max-tablet:items-center'>
+        <div className='  max-tablet:text-center'>
+          <h2 className=' text-[55px] text-white w-[400px] max-Laptop:text-[50px] max-tablet:w-full'>Why hire me?</h2>
+          <p className=' text-[#BDBDC1] w-[80%] mb-8 mt-5 leading-8 max-tablet:mx-auto max-tablet:mt-2 max-tablet:leading-6'>Clean code, quick solutions, always learning, always improving.</p>
         </div>
         <div className=' flex flex-col gap-5 w-[400px]'>
 
