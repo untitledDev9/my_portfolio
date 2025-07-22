@@ -31,7 +31,7 @@ const Education = () => {
 
         <div className=' bg-[#28272B] shadow-[0_4px_5px_rgba(0,253,154,0.3)] px-6 max-Laptop:px-4 py-5 w-full h-[160px] flex justify-between flex-col gap-4'>
           <div className=' grid gap-2'>
-            <p className='text-[#08c17a] max-Laptop:text-[13px]'>01/2025 - 03/2025</p>
+            <p className='text-[#08c17a] max-Laptop:text-[13px]'>01/2025 to 03/2025</p>
             <h1 className='max-Laptop:text-[14px] text-[17px] text-white'>JavaScript</h1>
           </div>
           <div className=' flex items-center gap-2 '>
@@ -42,7 +42,7 @@ const Education = () => {
 
         <div className=' bg-[#28272B] shadow-[0_4px_5px_rgba(0,253,154,0.3)] px-6 max-Laptop:px-4 py-5 w-full h-[160px] flex justify-between flex-col gap-4'>
           <div className=' grid gap-2'>
-            <p className='text-[#08c17a] max-Laptop:text-[13px]'>03/2024 - 07/2024</p>
+            <p className='text-[#08c17a] max-Laptop:text-[13px]'>03/2024 to 07/2024</p>
             <h1 className='max-Laptop:text-[14px] text-[17px] text-white'>Python Programming.</h1>
           </div>
           <div className=' flex items-center gap-2'>
@@ -53,7 +53,7 @@ const Education = () => {
 
         <div className=' bg-[#28272B] shadow-[0_4px_5px_rgba(0,253,154,0.3)] px-6 max-Laptop:px-4 py-5 w-full h-[160px] flex justify-between flex-col gap-4'>
           <div className=' grid gap-2'>
-            <p className='text-[#08c17a] max-Laptop:text-[13px]'>11/2024 - 02/2025</p>
+            <p className='text-[#08c17a] max-Laptop:text-[13px]'>11/2024 to 02/2025</p>
             <h1 className='max-Laptop:text-[14px] text-[17px] text-white'>Web Development</h1>
           </div>
           <div className=' flex items-center gap-2'>
