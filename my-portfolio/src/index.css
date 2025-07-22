@@ -45,3 +45,9 @@ body {
   background-color: #ff000000;
   /* gray-200 */
 }
+
+@layer utilities {
+  .stroke-text {
+    -webkit-text-stroke: 1px #ffffff; /* Change to desired stroke color */
+  }
+}
