@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-}
+    @theme {
+        --breakpoint-Laptop:1025px;
+        --breakpoint-tablet: 901px;
+        --breakpoint-mobile: 621px;
+    }
+
 
 body {
   background-color: #1C1B22;
@@ -13,8 +16,16 @@ body {
   /* background-color: bisque; */
   max-width: 900px;
   margin: 0px auto;
+  padding: 0 20px;
 
   /* border: 2px solid rgb(255, 255, 255); */
+}
+
+@media (max-width: 900px){
+  .width {
+  /* background-color: rgb(255, 0, 0); */
+  max-width: 700px;
+}
 }
 
 
