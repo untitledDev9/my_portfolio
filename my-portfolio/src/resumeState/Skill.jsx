@@ -14,10 +14,12 @@ const Skill = () => {
   return (
             <div>
           <div>
-            <h2 className='text-white text-[43px]'>My Skills</h2>
-            <p className=' text-[14px] text-[#BDBDC1] leading-7 mb-5'>I’ve built solid frontend skills with React and Tailwind, and I’m now learning backend basics to grow into a full-stack developer.</p>
+            <h2 className='text-white text-[43px] max-mobile:text-[32px]'>My Skills</h2>
+            <p className=' text-[14px] text-[#BDBDC1] leading-7 mb-5 max-Laptop:leading-6 max-mobile:mb-9'>I’ve built solid frontend skills with React and Tailwind, and I’m now learning backend basics to grow into a full-stack developer.</p>
           </div>
-          <div className=' grid grid-cols-4 max-Laptop:grid-cols-3 max-Laptop:w-[420px] max-Laptop:h-[300px] custom-scroll overflow-y-scroll gap-5 w-[560px]'>
+          <div className=' grid grid-cols-4 max-Laptop:grid-cols-3 max-Laptop:w-[420px] max-Laptop:h-[300px] custom-scroll overflow-y-scroll gap-5 w-[560px]
+          max-mobile:grid-cols-2 max-mobile:w-[270px] max-mobile:mx-auto
+          '>
             <div className=' bg-[#28272B] w-[120px] h-[120px] items-center flex justify-center py-5 text-white hover:text-[#00FD9A] transition-colors ease-in-out duration-400 rounded'>
               <FaHtml5  size={50}/>
             </div>

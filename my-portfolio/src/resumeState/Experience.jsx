@@ -6,13 +6,16 @@ const Experience = () => {
       <div>
         <h2 className=' text-white text-[43px]
         max-Laptop:text-[35px]
+        max-mobile:text-[32px]
         '>My Expereience</h2>
         <p className=' text-[#BDBDC1] leading-7 mb-5
-        max-Laptop:text-[13px] max-Laptop:leading-5
+        max-Laptop:text-[13px] max-Laptop:leading-5 max-mobile:mb-9
         '>I don’t just write code — I’ve built and deployed websites, solved real bugs, and worked across the stack when needed. </p>
       </div>
 
-      <div className=' grid gap-5 grid-cols-2  h-[300px] overflow-hidden overflow-y-auto custom-scroll'>
+      <div className=' grid gap-5 grid-cols-2  h-[300px] overflow-hidden overflow-y-auto custom-scroll
+      max-mobile:grid-cols-1
+      '>
 
         <div className=' bg-[#28272B] shadow-[0_4px_5px_rgba(0,253,154,0.3)] px-6 max-Laptop:px-4 py-5 w-full h-[160px] flex justify-between flex-col gap-4'>
           <div className=' grid gap-2'>
