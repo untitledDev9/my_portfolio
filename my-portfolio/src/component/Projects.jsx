@@ -7,6 +7,8 @@ import country from '../assets/country-desktop.png'
 import country2 from '../assets/country-mobile.png'
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
+import piggy from '../assets/piggy-desktop.png'
+import piggy2 from '../assets/piggy-mobile.png'
 
 const Projects = () => {
   return (
@@ -14,7 +16,7 @@ const Projects = () => {
       <div className=' width flex gap-3'>
         <div className='w-[50%]  flex flex-col gap-5'>
           <h2 className=" font-bold text-6xl text-transparent stroke-text">01</h2>
-          <p className=' font-semibold text-white text-[30px]'>Fullstack Project</p>
+          <p className=' font-semibold text-white text-[30px]'>Netflix Clone</p>
           <p className=' leading-7 text-[15px] text-[#BDBDC1]'> A Netflix clone, with ability to search and navigate through all movies</p>
           <div className=' flex gap-3 text-[#08c17a]'>
             <p>React.js,</p>
@@ -45,7 +47,7 @@ const Projects = () => {
       <div className=' width flex gap-3'>
         <div className='w-[50%]  flex flex-col gap-5'>
           <h2 className=" font-bold text-6xl text-transparent stroke-text">02</h2>
-          <p className=' font-semibold text-white text-[30px]'>Fullstack Project</p>
+          <p className=' font-semibold text-white text-[30px]'>Landing Page</p>
           <p className=' leading-7 text-[15px] text-[#BDBDC1]'> A Netflix clone, with ability to search and navigate through all movies</p>
           <div className=' flex gap-3 text-[#08c17a]'>
             <p>React.js,</p>
@@ -71,11 +73,10 @@ const Projects = () => {
 
 
 
-
-      <div className=' width flex gap-3'>
+<div className=' width flex gap-3'>
         <div className='w-[50%]  flex flex-col gap-5'>
           <h2 className=" font-bold text-6xl text-transparent stroke-text">03</h2>
-          <p className=' font-semibold text-white text-[30px]'>Fullstack Project</p>
+          <p className=' font-semibold text-white text-[30px]'>PiggyVest</p>
           <p className=' leading-7 text-[15px] text-[#BDBDC1]'> A Netflix clone, with ability to search and navigate through all movies</p>
           <div className=' flex gap-3 text-[#08c17a]'>
             <p>React.js,</p>
@@ -89,6 +90,35 @@ const Projects = () => {
           </div>
         </div>
         <div className='flex items-center justify-end bg-[#23276d] relative h-fit pt-4 w-[60%]'>
+          <div className=' w-[450px]'>
+            <img src={piggy} alt="" />
+          </div>
+          <div className=' w-[200px] absolute top-10 left-6'>
+            <img src={piggy2} alt="" />
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div className=' width flex gap-3'>
+        <div className='w-[50%]  flex flex-col gap-5'>
+          <h2 className=" font-bold text-6xl text-transparent stroke-text">03</h2>
+          <p className=' font-semibold text-white text-[30px]'>Countries API</p>
+          <p className=' leading-7 text-[15px] text-[#BDBDC1]'> A Netflix clone, with ability to search and navigate through all movies</p>
+          <div className=' flex gap-3 text-[#08c17a]'>
+            <p>React.js,</p>
+            <p>Tailwind.css,</p>
+            <p>Owl-carousel</p>
+          </div>
+          <div className=' w-[95%] h-[1px] bg-[#BDBDC1] mb-3'></div>
+          <div className='  flex gap-5'>
+            <a href="https://movie-api-delta-dun.vercel.app/ "><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><BsArrowUpRight size={23} /></div></a>
+            <a href="https://github.com/untitledDev9/movie-api"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><FaGithub size={23} /></div></a>
+          </div>
+        </div>
+        <div className='flex items-center justify-end bg-[#236d27] relative h-fit pt-4 w-[60%]'>
           <div className=' w-[450px]'>
             <img src={country} alt="" />
           </div>
