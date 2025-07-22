@@ -10,8 +10,7 @@ const Homepage = () => {
       <Navbar />
       <Hero />
       <Numbers />
-      {/* <Resume />
-      Homepage */}
+      <Resume />
     </main>
   )
 }

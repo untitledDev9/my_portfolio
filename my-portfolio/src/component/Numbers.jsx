@@ -61,7 +61,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <div className='width flex items-center justify-center gap-10 text-white mt-9
+    <div className='width flex items-center justify-center gap-10 text-white mt-14
     max-mobile:grid max-mobile:gap-5 max-mobile:place-items-center max-mobile:text-center
     '>
       <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1'>
