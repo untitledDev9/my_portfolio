@@ -25,6 +25,7 @@ body {
   .width {
   /* background-color: rgb(255, 0, 0); */
   max-width: 700px;
+  padding-inline: 8px;
 }
 }
 

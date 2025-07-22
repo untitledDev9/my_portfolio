@@ -17,8 +17,8 @@ const Navbar = () => {
     };
   }, [menu]);
   return (
-    <div>
-    <main className='width flex justify-between items-center h-20'>
+    <div className='max-mobile:px-2'>
+    <main className='width flex justify-between items-center h-20 '>
       <div>
         <h1 className=' font-bold text-2xl text-white cursor-pointer'>Ahmed<span className=' text-[#00FD9A]'>.</span></h1>
       </div>
