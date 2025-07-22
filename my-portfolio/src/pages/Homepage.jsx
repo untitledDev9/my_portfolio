@@ -8,10 +8,10 @@ const Homepage = () => {
   return (
     <main>
       <Navbar />
-      {/* <Hero />
-      <Numbers />
-      <Resume /> */}
-      Homepage
+      <Hero />
+      {/* <Numbers />
+      <Resume />
+      Homepage */}
     </main>
   )
 }
