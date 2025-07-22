@@ -62,23 +62,23 @@ const Experience = () => {
 
   return (
     <div className='width flex items-center justify-center gap-10 text-white mt-14
-    max-mobile:grid max-mobile:grid-cols-2 max-mobile:gap-2max-mobile:place-items-center max-mobile:text-center
+    max-mobile:grid max-mobile:grid-cols-2 max-mobile:gap-2max-mobile:place-items-center max-mobile:text-center max-mobile:w-[70%] max-mobile:gap-9 max-mobile:mx-auto 
     '>
-      <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1'>
-        <p className='font-bold text-[56px] max-mobile:text-[50px]'>{String(counts.experience).padStart(2, '0')}</p>
-        <p className='w-[60%] text-[#BDBDC1]'>Year(s) of experience</p>
+      <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1 max-mobile:w-[100%]' >
+        <p className='font-bold text-[56px] max-mobile:text-[40px]'>{String(counts.experience).padStart(2, '0')}</p>
+        <p className='w-[60%] text-[#BDBDC1] max-mobile:w-full max-mobile:text-[12px]'>Year(s) of experience</p>
       </div>
-      <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1'>
-        <p className='font-bold text-[56px] max-mobile:text-[50px]'>{String(counts.projects).padStart(2, '0')}</p>
-        <p className='w-[60%] text-[#BDBDC1]'>Projects completed</p>
+      <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1 max-mobile:w-[100%] '>
+        <p className='font-bold text-[56px] max-mobile:text-[40px]'>{String(counts.projects).padStart(2, '0')}</p>
+        <p className='w-[60%] text-[#BDBDC1] max-mobile:w-full max-mobile:text-[12px]'>Projects completed</p>
       </div>
-      <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1'>
-        <p className='font-bold text-[56px] max-mobile:text-[50px]'>{String(counts.tech).padStart(2, '0')}</p>
-        <p className='w-[60%] text-[#BDBDC1]'>Technologies mastered</p>
+      <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1 max-mobile:w-[100%]'>
+        <p className='font-bold text-[56px] max-mobile:text-[40px]'>{String(counts.tech).padStart(2, '0')}</p>
+        <p className='w-[60%] text-[#BDBDC1] max-mobile:w-full max-mobile:text-[12px]'>Technologies mastered</p>
       </div>
-      <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1'>
-        <p className='font-bold text-[56px] max-mobile:text-[50px]'>{commit}</p>
-        <p className='w-[60%] text-[#BDBDC1]'>Code commits</p>
+      <div className='gap-2 flex items-center w-[170px] max-mobile:flex-col max-mobile:gap-1 max-mobile:w-[100%]'>
+        <p className='font-bold text-[56px] max-mobile:text-[40px]'>{commit}</p>
+        <p className='w-[60%] text-[#BDBDC1] max-mobile:w-full max-mobile:text-[12px] max-mobile:mt-'>Code commits </p>
       </div>
     </div>
   );
