@@ -22,7 +22,7 @@ const Resume = () => {
 
 
   return (
-    <div id='resume' className=' width flex justify-between mt-20 gap-22 mb-48 max-tablet:flex-col max-tablet:items-center max-tablet:gap-10'>
+    <div id='resume' className=' width flex justify-between mt-20 gap-22 mb-30 max-tablet:flex-col max-tablet:items-center max-tablet:gap-10'>
       <div className=' w-[40%] max-tablet:w-full max-tablet:flex max-tablet:flex-col max-tablet:items-center'>
         <div className='  max-tablet:text-center'>
           <h2 className=' text-[55px] text-white w-[400px] max-Laptop:text-[50px] max-tablet:w-full

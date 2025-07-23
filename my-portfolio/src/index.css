@@ -13,7 +13,7 @@ body {
 }
 
 .width {
-  /* background-color: bisque; */
+  /* background-color: rgba(4, 104, 120, 0.597); */
   max-width: 1080px;
   margin-inline: auto;
   padding-inline: 20px;
