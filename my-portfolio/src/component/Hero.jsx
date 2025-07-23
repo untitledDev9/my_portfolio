@@ -72,8 +72,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className=' border-dotted border-green-600 border-2 rounded-full w-[70%] '>
-        <img src={Photo} alt="" />
+      <div className=' border-dotted border-green-600 border-2  w-[35%] pt-5 pl-5'>
+        <img src={Photo} alt="" className='w-full'/>
       </div>
     </div>
   )
