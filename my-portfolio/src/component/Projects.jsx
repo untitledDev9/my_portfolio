@@ -12,26 +12,26 @@ import piggy2 from '../assets/piggy-mobile.png'
 
 const Projects = () => {
   return (
-    <div id='work' className=' flex-col flex gap-30 max-tablet:gap-22 mb-10'>
+    <div id='work' className=' flex-col flex gap-30 max-tablet:gap-22 mb-10  max-mobile:px-4'>
 
 
 
 
       <a href="https://movie-api-delta-dun.vercel.app/" target='blank'>
         <div className=' width flex gap-3 max-tablet:flex-col'>
-          <div className='w-[50%]  flex flex-col gap-5 max-tablet:w-full'>
-            <h2 className=" font-bold text-6xl text-transparent stroke-text">01</h2>
-            <p className=' font-semibold text-white text-[30px]'>Netflix Clone</p>
-            <p className=' leading-7 text-[15px] text-[#BDBDC1]'> A Netflix clone, with ability to search and navigate through all movies</p>
-            <div className=' flex gap-3 text-[#08c17a]'>
+          <div className='w-[50%]  flex flex-col gap-5 max-tablet:w-full max-mobile:gap-3'>
+            <h2 className=" font-bold text-6xl text-transparent stroke-text max-mobile:text-5xl">01</h2>
+            <p className=' font-semibold text-white text-[30px] max-mobile:text-[24px]'>Netflix Clone</p>
+            <p className=' leading-7 text-[15px] text-[#BDBDC1] max-mobile:text-[12px] max-mobile:leading-6'> A Netflix clone, with ability to search and navigate through all movies</p>
+            <div className=' flex gap-3 text-[#08c17a] max-mobile:text-[13px]'>
               <p>React.js,</p>
               <p>Tailwind.css,</p>
               <p>Owl-carousel</p>
             </div>
             <div className=' w-[95%] h-[1px] bg-[#BDBDC1] mb-3'></div>
-            <div className='  flex gap-5 max-tablet:mx-auto max-tablet:my-3'>
-              <a href="https://movie-api-delta-dun.vercel.app/ "><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><BsArrowUpRight size={23} /></div></a>
-              <a href="https://github.com/untitledDev9/movie-api"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><FaGithub size={23} /></div></a>
+            <div className='  flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0'>
+              <a href="https://movie-api-delta-dun.vercel.app/ "><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3  ' ><BsArrowUpRight size={23} /></div></a>
+              <a href="https://github.com/untitledDev9/movie-api"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3  ' ><FaGithub size={23} /></div></a>
             </div>
           </div>
           <div className='flex items-center justify-end bg-[#266361] relative max-Laptop:w-[50%] h-fit pt-4 w-[60%] hover:pt-0 transition-all duration-400 ease-in-out 
@@ -52,19 +52,19 @@ const Projects = () => {
 
       <a href="https://virtual-r-vert.vercel.app/" target='blank'>
         <div className=' width flex gap-3 max-tablet:flex-col'>
-          <div className='w-[50%]  flex flex-col gap-5 max-tablet:w-full'>
-            <h2 className=" font-bold text-6xl text-transparent stroke-text">02</h2>
-            <p className=' font-semibold text-white text-[30px]'>Landing Page</p>
-            <p className=' leading-7 text-[15px] text-[#BDBDC1]'>Built a simple Landing page that improved my knowledge on CSS grid</p>
-            <div className=' flex gap-3 text-[#08c17a]'>
+          <div className='w-[50%]  flex flex-col gap-5 max-tablet:w-full max-mobile:gap-3'>
+            <h2 className=" font-bold text-6xl text-transparent stroke-text max-mobile:text-5xl">02</h2>
+            <p className='max-mobile:text-[24px] font-semibold text-white text-[30px]'>Landing Page</p>
+            <p className='max-mobile:text-[12px] max-mobile:leading-6 leading-7 text-[15px] text-[#BDBDC1]'>Built a simple Landing page that improved my knowledge on CSS grid</p>
+            <div className=' flex gap-3 text-[#08c17a] max-mobile:text-[13px]'>
               <p>React.js,</p>
               <p>Tailwind.css</p>
               
             </div>
             <div className=' w-[95%] h-[1px] bg-[#BDBDC1] mb-3'></div>
-            <div className='  flex gap-5 max-tablet:mx-auto max-tablet:my-3'>
-              <a href="https://virtual-r-vert.vercel.app/ "><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><BsArrowUpRight size={23} /></div></a>
-              <a href="https://github.com/untitledDev9/VirtualR"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><FaGithub size={23} /></div></a>
+            <div className='  flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0'>
+              <a href="https://virtual-r-vert.vercel.app/ "><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3  ' ><BsArrowUpRight size={23} /></div></a>
+              <a href="https://github.com/untitledDev9/VirtualR"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3  ' ><FaGithub size={23} /></div></a>
             </div>
           </div>
           <div className='flex items-center justify-end bg-[#633626] relative max-Laptop:w-[50%] h-fit pt-4 w-[60%] hover:pt-0 transition-all duration-400 ease-in-out
@@ -84,19 +84,19 @@ const Projects = () => {
 
       <a href="https://piggy-vest-full-function.vercel.app/" target='blank'>
         <div className=' width flex gap-3 max-tablet:flex-col'>
-          <div className='w-[50%]  flex flex-col gap-5 max-tablet:w-full'>
-            <h2 className=" font-bold text-6xl text-transparent stroke-text">03</h2>
-            <p className=' font-semibold text-white text-[30px]'>PiggyVest</p>
-            <p className=' leading-7 text-[15px] text-[#BDBDC1]'>Cloned a Real life website, to build more knowledge on how Pro Devs create websites</p>
-            <div className=' flex gap-3 text-[#08c17a]'>
+          <div className='w-[50%]  flex flex-col gap-5 max-tablet:w-full max-mobile:gap-3'>
+            <h2 className=" font-bold text-6xl text-transparent stroke-text max-mobile:text-5xl">03</h2>
+            <p className='max-mobile:text-[24px] font-semibold text-white text-[30px]'>PiggyVest</p>
+            <p className='max-mobile:text-[12px] max-mobile:leading-6 leading-7 text-[15px] text-[#BDBDC1]'>Cloned a Real life website, to build more knowledge on how Pro Devs create websites</p>
+            <div className=' flex gap-3 text-[#08c17a] max-mobile:text-[13px]'>
               <p>React.js,</p>
               <p>Tailwind.css,</p>
               <p>React State</p>
             </div>
             <div className=' w-[95%] h-[1px] bg-[#BDBDC1] mb-3'></div>
-            <div className='  flex gap-5 max-tablet:mx-auto max-tablet:my-3'>
-              <a href="https://piggy-vest-full-function.vercel.app/"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><BsArrowUpRight size={23} /></div></a>
-              <a href="https://github.com/untitledDev9/piggyVest-full-function"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><FaGithub size={23} /></div></a>
+            <div className='  flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0'>
+              <a href="https://piggy-vest-full-function.vercel.app/"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3  ' ><BsArrowUpRight size={23} /></div></a>
+              <a href="https://github.com/untitledDev9/piggyVest-full-function"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3  ' ><FaGithub size={23} /></div></a>
             </div>
           </div>
           <div className='flex items-center justify-end bg-[#23276d] relative max-Laptop:w-[50%] h-fit pt-4 w-[60%] hover:pt-0 transition-all duration-400 ease-in-out
@@ -116,19 +116,19 @@ const Projects = () => {
 
       <a href="https://country-api-gray.vercel.app/" target='blank'>
         <div className=' width flex gap-3 max-tablet:flex-col'>
-          <div className='w-[50%]  flex flex-col gap-5 max-tablet:w-full'>
-            <h2 className=" font-bold text-6xl text-transparent stroke-text">04</h2>
-            <p className=' font-semibold text-white text-[30px]'>Countries API</p>
-            <p className=' leading-7 text-[15px] text-[#BDBDC1]'>Worked with APIs, and had better understanding on Array methods</p>
-            <div className=' flex gap-3 text-[#08c17a]'>
+          <div className='w-[50%]  flex flex-col gap-5 max-tablet:w-full max-mobile:gap-3'>
+            <h2 className=" font-bold text-6xl text-transparent stroke-text max-mobile:text-5xl">04</h2>
+            <p className='max-mobile:text-[24px] font-semibold text-white text-[30px]'>Countries API</p>
+            <p className='max-mobile:text-[12px] max-mobile:leading-6 leading-7 text-[15px] text-[#BDBDC1]'>Worked with APIs, and had better understanding on Array methods</p>
+            <div className=' flex gap-3 text-[#08c17a] max-mobile:text-[13px]'>
               <p>React.js,</p>
               <p>Tailwind.css,</p>
               <p>APIs</p>
             </div>
             <div className=' w-[95%] h-[1px] bg-[#BDBDC1] mb-3'></div>
-            <div className='  flex gap-5 max-tablet:mx-auto max-tablet:my-3'>
-              <a href="https://country-api-gray.vercel.app/ "><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><BsArrowUpRight size={23} /></div></a>
-              <a href="https://github.com/untitledDev9/Country-Api"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3 ' ><FaGithub size={23} /></div></a>
+            <div className='  flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0'>
+              <a href="https://country-api-gray.vercel.app/ "><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3  ' ><BsArrowUpRight size={23} /></div></a>
+              <a href="https://github.com/untitledDev9/Country-Api"><div className='text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3  ' ><FaGithub size={23} /></div></a>
             </div>
           </div>
           <div className='flex items-center justify-end bg-[#236d27] relative max-Laptop:w-[50%] h-fit pt-4 w-[60%] hover:pt-0 transition-all duration-400 ease-in-out
