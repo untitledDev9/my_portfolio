@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { CgMenuMotion } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
-import logo from '../../public/untitled-logo.png'
+import logo from '/untitled-logo.png'
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false)
 
-    useEffect(() => {
-    if (menu) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+  //   useEffect(() => {
+  //   if (menu) {
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     document.body.style.overflow = '';
+  //   }
 
-    return () => {
-      document.body.style.overflow = ''; // cleanup just in case
-    };
-  }, [menu]);
+  //   return () => {
+  //     document.body.style.overflow = ''; // cleanup just in case
+  //   };
+  // }, [menu]);
   return (
     <div className='max-mobile:px-2'>
     <main className='width flex justify-between items-center h-20 '>
@@ -24,12 +24,12 @@ const Navbar = () => {
         <img src={logo} alt="" />
       </div>
       <div className=' text-[13px] flex items-center gap-5 text-white max-mobile:hidden'>
-        <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Home</p>
-        <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Services</p>
-        <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Resume</p>
-        <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Work</p>
-        <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Contact</p>
-        <button className=' text-black bg-[#00FD9A] py-1 px-2 rounded-xl hover:border-2 hover:text-white transition-colors duration-400 ease-in-out hover:border-[#00FD9A] hover:bg-[#00FD9A00]'>Hire me</button>
+        <a href="#home"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Home</p></a>
+        <a href="#service"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Services</p></a>
+        <a href="#resume"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Resume</p></a>
+        <a href="#work"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Work</p></a>
+        <a href="#contact"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Contact</p></a>
+        <a href="#hire"><button className=' text-black bg-[#00FD9A] py-1 px-2 rounded-xl hover:border-2 hover:text-white transition-colors duration-400 ease-in-out hover:border-[#00FD9A] hover:bg-[#00FD9A00]'>Hire me</button></a>
 
       </div>
       <div className=' hidden max-mobile:block'
@@ -43,13 +43,13 @@ const Navbar = () => {
 
      <div className=' overflow-hidden'>
         {menu && (
-          <div className=' text-[16px] flex flex-col z-50 h-screen py-10 px-6 items-center gap-8 text-white'>
-            <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Home</p>
-            <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Services</p>
-            <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Resume</p>
-            <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Work</p>
-            <p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Contact</p>
-            <button className=' w-full text-black bg-[#00FD9A] py-4  hover:border-2 hover:border-white '>Hire me</button>
+          <div className=' text-[16px] flex flex-col z-50 h-fit py-10 px-6 items-center gap-8 text-white'>
+            <a onClick={() => setMenu(!menu)} href="#home"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Home</p></a>
+            <a onClick={() => setMenu(!menu)} href=""><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Services</p></a>
+            <a onClick={() => setMenu(!menu)} href="#resume"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Resume</p></a>
+            <a onClick={() => setMenu(!menu)} href="#work"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Work</p></a>
+            <a onClick={() => setMenu(!menu)} href="#contact"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Contact</p></a>
+            <a onClick={() => setMenu(!menu)} href="#hire" className='w-full'><button className=' w-full text-black bg-[#00FD9A] py-3  hover:border-2 hover:border-white '>Hire me</button></a>
           </div>
         )}
       </div>

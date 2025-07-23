@@ -51,3 +51,7 @@ body {
     -webkit-text-stroke: 1px #ffffff; /* Change to desired stroke color */
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

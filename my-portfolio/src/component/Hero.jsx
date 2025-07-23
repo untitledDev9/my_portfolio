@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const Hero = () => {
   return (
-    <div className=' width flex justify-center items-center pt-16
+    <div id='home' className=' width flex justify-center items-center pt-16
     max-tablet:flex-col-reverse max-tablet:gap-8 max-tablet:pt-10
     max-mobile:gap-6 max-mobile:pt-4
     '>

@@ -12,7 +12,7 @@ import piggy2 from '../assets/piggy-mobile.png'
 
 const Projects = () => {
   return (
-    <div className=' flex-col flex gap-30 max-tablet:gap-22'>
+    <div id='work' className=' flex-col flex gap-30 max-tablet:gap-22 mb-10'>
 
 
 
