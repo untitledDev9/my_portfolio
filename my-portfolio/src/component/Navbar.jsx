@@ -18,7 +18,8 @@ const Navbar = () => {
   //   };
   // }, [menu]);
   return (
-    <div className='max-mobile:px-2'>
+      <>
+    <div className='max-mobile:px-2  fixed w-full top-0 z-50  backdrop-blur-md bg-[#1C1B22]/34'>
     <main className='width flex justify-between items-center h-20 '>
       <div className=' flex items-center gap-1 w-[35px]'>
         <img src={logo} alt="" />
@@ -41,7 +42,7 @@ const Navbar = () => {
     </main>
 
 
-     <div className=' overflow-hidden'>
+     
         {menu && (
           <div className=' text-[16px] flex flex-col z-50 h-fit py-10 px-6 items-center gap-8 text-white'>
             <a onClick={() => setMenu(!menu)} href="#home"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Home</p></a>
@@ -52,8 +53,10 @@ const Navbar = () => {
             <a onClick={() => setMenu(!menu)} href="#hire" className='w-full'><button className=' w-full text-black bg-[#00FD9A] py-3  hover:border-2 hover:border-white '>Hire me</button></a>
           </div>
         )}
-      </div>
+     
     </div>
+    <div className='h-[60px]'></div>
+    </>
   )
 }
 
