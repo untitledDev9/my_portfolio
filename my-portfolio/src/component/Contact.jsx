@@ -4,7 +4,7 @@ import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 const Contact = () => {
   return (
-    <div id='contact' className='width my-32 flex items-center justify-center gap-16 max-Laptop:gap-7
+    <div id='contact' className='width my-18 flex items-center justify-center gap-16 max-Laptop:gap-7
       max-tablet:flex-col-reverse max-tablet:gap-16 
     '>
       <div className=' bg-[#313036] w-[50%] p-6 flex flex-col gap-10 max-Laptop:w-[70%] max-Laptop:gap-5

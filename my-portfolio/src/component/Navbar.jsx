@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
           <div className=' text-[13px] flex items-center gap-5 text-white max-mobile:hidden'>
             <a href="#home"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Home</p></a>
-            <a href="#service"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Services</p></a>
+            {/* <a href="#service"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Services</p></a> */}
             <a href="#resume"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Resume</p></a>
             <a href="#work"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Work</p></a>
             <a href="#contact"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Contact</p></a>
@@ -46,7 +46,7 @@ const Navbar = () => {
         {menu && (
           <div className=' text-[16px] flex flex-col z-50 h-fit py-10 px-6 items-center gap-8 text-white'>
             <a onClick={() => setMenu(!menu)} href="#home"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Home</p></a>
-            <a onClick={() => setMenu(!menu)} href=""><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Services</p></a>
+            {/* <a onClick={() => setMenu(!menu)} href=""><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Services</p></a> */}
             <a onClick={() => setMenu(!menu)} href="#resume"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Resume</p></a>
             <a onClick={() => setMenu(!menu)} href="#work"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Work</p></a>
             <a onClick={() => setMenu(!menu)} href="#contact"><p className=' hover:text-[#00FD9A] transition-colors duration-150 ease-in-out cursor-pointer'>Contact</p></a>
