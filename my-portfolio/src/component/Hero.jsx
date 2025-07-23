@@ -72,7 +72,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className=' border-dotted border-green-600 border-2  w-[35%] pt-5 pl-5'>
+      <div className=' border-dotted border-green-600 border-2  w-[35%] pt-5 pl-5 max-tablet:w-[45%] max-mobile:w-[65%]'>
         <img src={Photo} alt="" className='w-full'/>
       </div>
     </div>
