@@ -1,7 +1,7 @@
 import React, {  useState } from 'react'
 import { CgMenuMotion } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
-import logo from '/untitled-logo.png'
+import logo from '../assets/Untitled-1-white.png'
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false)

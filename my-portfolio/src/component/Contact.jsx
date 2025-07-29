@@ -3,33 +3,42 @@ import emailjs from '@emailjs/browser';
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6"
+import { ToastContainer, toast } from 'react-toastify';
 
 const Contact = () => {
+
+
+  const notify = () => toast("Wow so easy!");
+
+
+
+
+
   const formRef = useRef();
 
-const sendEmail = async (e) => {
-  e.preventDefault();
+  const sendEmail = async (e) => {
+    e.preventDefault();
 
-  try {
-    const result = await emailjs.sendForm(
-      'service_zy6qwcx',
-      'template_j59sla6',
-      formRef.current,
-      '8z-uHkOu9fhzu68wx'
-    );
-    console.log(result.text);
-    alert("Message sent!");
-  } catch (error) {
-    console.error(error);
-    if (error.message?.includes('Failed to fetch')) {
-      alert("No internet connection. Please try again.");
-    } else {
-      alert("Something went wrong. Please check your form or API keys.");
+    try {
+      const result = await emailjs.sendForm(
+        'service_zy6qwcx',
+        'template_j59sla6',
+        formRef.current,
+        '8z-uHkOu9fhzu68wx'
+      );
+      console.log(result.text);
+      alert(`${notify}`);
+    } catch (error) {
+      console.error(error);
+      if (error.message?.includes('Failed to fetch')) {
+        alert("No internet connection. Please try again.");
+      } else {
+        alert("Something went wrong. Please check your form or API keys.");
+      }
     }
-  }
 
-  e.target.reset();
-};
+    e.target.reset();
+  };
 
 
   return (
@@ -56,12 +65,14 @@ const sendEmail = async (e) => {
           </select>
           <textarea name='message' placeholder='Type your message here' className='bg-[#1C1B22] text-white p-3 placeholder:text-[#BDBDC1] text-[11px] rounded h-44' required></textarea>
         </div>
-        <button type='submit' className='text-black bg-[#00FD9A] py-2 hover:border-2 hover:text-white transition-colors duration-400 ease-in-out hover:border-[#00FD9A] hover:bg-[#00FD9A00]'>
-          Send message
+        <button
+
+          type='submit' className='text-black bg-[#00FD9A] py-2 hover:border-2 hover:text-white transition-colors duration-400 ease-in-out hover:border-[#00FD9A] hover:bg-[#00FD9A00]'>
+          Send message  <ToastContainer />
         </button>
       </form>
 
-      
+
       <div className='flex flex-col gap-9 w-[32%] max-Laptop:w-[30%] max-Laptop:gap-6 max-tablet:w-[50%] max-mobile:w-full'>
         <div className='flex items-center gap-4 ...'>
           <div className='bg-[#313036e3] p-3 text-[#00FD9A] text-xl'><FaPhoneAlt /></div>
