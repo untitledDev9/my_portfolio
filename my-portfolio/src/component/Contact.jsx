@@ -52,7 +52,7 @@ const sendEmail = async (e) => {
             <option>Select a service</option>
             <option>Web Development</option>
             <option>UI/UX Design</option>
-            <option>gggg</option>
+            <option>Freelance</option>
           </select>
           <textarea name='message' placeholder='Type your message here' className='bg-[#1C1B22] text-white p-3 placeholder:text-[#BDBDC1] text-[11px] rounded h-44' required></textarea>
         </div>
