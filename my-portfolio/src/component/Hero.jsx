@@ -1,6 +1,6 @@
 import React from 'react'
 import { FiDownload } from "react-icons/fi";
-import Photo from '../assets/photo.png'
+import Photo from '../assets/Glishhh.png'
 import { FaGithub } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -72,7 +72,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className=' border-dotted border-green-600 border-2  w-[35%] pt-5 pl-5 max-tablet:w-[45%] max-mobile:w-[65%]'>
+      <div className=' border-dotted border-green-600 border-2  w-[35%] pt-5  max-tablet:w-[45%] max-mobile:w-[65%]'>
         <img src={Photo} alt="" className='w-full'/>
       </div>
     </div>
