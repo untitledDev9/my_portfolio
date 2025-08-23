@@ -1,6 +1,6 @@
 import React from 'react'
 import { FiDownload } from "react-icons/fi";
-import Photo from '../assets/Glishhh.png'
+import Photo from '../assets/WhatsApp_Image_2025-08-23_at_14.49.11_93a877ee-removebg-preview.png'
 import { FaGithub } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 

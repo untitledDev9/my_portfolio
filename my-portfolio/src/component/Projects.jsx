@@ -90,7 +90,7 @@ const Projects = () => {
         <div
           className="flex items-center justify-end bg-[#266361] relative max-Laptop:w-[50%] h-fit pt-4 w-[60%] hover:pt-0 transition-all duration-400 ease-in-out 
     max-tablet:w-full max-tablet:justify-center max-tablet:bg-[#3330] max-tablet:transition-none max-tablet:pt-0"
-          onClick={() => window.open("https://movie-api-delta-dun.vercel.app/", "_blank")}
+          onClick={() => window.open("https://virtual-r-vert.vercel.app/", "_blank")}
         >
           <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none">
             <img src={virtual} alt="" />
@@ -134,7 +134,7 @@ const Projects = () => {
         <div
           className="flex items-center justify-end bg-[#266361] relative max-Laptop:w-[50%] h-fit pt-4 w-[60%] hover:pt-0 transition-all duration-400 ease-in-out 
     max-tablet:w-full max-tablet:justify-center max-tablet:bg-[#3330] max-tablet:transition-none max-tablet:pt-0"
-          onClick={() => window.open("https://movie-api-delta-dun.vercel.app/", "_blank")}
+          onClick={() => window.open("https://piggy-vest-full-function.vercel.app/", "_blank")}
         >
           <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none">
             <img src={piggy} alt="" />
@@ -178,7 +178,7 @@ const Projects = () => {
         <div
           className="flex items-center justify-end bg-[#266361] relative max-Laptop:w-[50%] h-fit pt-4 w-[60%] hover:pt-0 transition-all duration-400 ease-in-out 
     max-tablet:w-full max-tablet:justify-center max-tablet:bg-[#3330] max-tablet:transition-none max-tablet:pt-0"
-          onClick={() => window.open("https://movie-api-delta-dun.vercel.app/", "_blank")}
+          onClick={() => window.open("https://country-api-gray.vercel.app/", "_blank")}
         >
           <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none">
             <img src={country} alt="" />
