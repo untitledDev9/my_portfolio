@@ -75,12 +75,12 @@ const Projects = () => {
           </div>
           <div className="w-[95%] h-[1px] bg-[#BDBDC1] mb-3"></div>
           <div className="flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0">
-            <a href="https://movie-api-delta-dun.vercel.app/" target="_blank">
+            <a href="https://virtual-r-vert.vercel.app/" target="_blank">
               <div className="text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3">
                 <BsArrowUpRight size={23} />
               </div>
             </a>
-            <a href="https://github.com/untitledDev9/movie-api" target="_blank">
+            <a href="https://github.com/untitledDev9/VirtualR" target="_blank">
               <div className="text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3">
                 <FaGithub size={23} />
               </div>
@@ -119,12 +119,12 @@ const Projects = () => {
           </div>
           <div className="w-[95%] h-[1px] bg-[#BDBDC1] mb-3"></div>
           <div className="flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0">
-            <a href="https://movie-api-delta-dun.vercel.app/" target="_blank">
+            <a href="https://piggy-vest-full-function.vercel.app/" target="_blank">
               <div className="text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3">
                 <BsArrowUpRight size={23} />
               </div>
             </a>
-            <a href="https://github.com/untitledDev9/movie-api" target="_blank">
+            <a href="https://github.com/untitledDev9/piggyVest-full-function" target="_blank">
               <div className="text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3">
                 <FaGithub size={23} />
               </div>
@@ -163,12 +163,12 @@ const Projects = () => {
           </div>
           <div className="w-[95%] h-[1px] bg-[#BDBDC1] mb-3"></div>
           <div className="flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0">
-            <a href="https://movie-api-delta-dun.vercel.app/" target="_blank">
+            <a href="https://country-api-gray.vercel.app/" target="_blank">
               <div className="text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3">
                 <BsArrowUpRight size={23} />
               </div>
             </a>
-            <a href="https://github.com/untitledDev9/movie-api" target="_blank">
+            <a href="https://github.com/untitledDev9/Country-Api" target="_blank">
               <div className="text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3">
                 <FaGithub size={23} />
               </div>
