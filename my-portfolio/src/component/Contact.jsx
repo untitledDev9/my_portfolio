@@ -4,15 +4,10 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6"
 import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Contact = () => {
-
-
-  const notify = () => toast("Wow so easy!");
-
-
-
-
 
   const formRef = useRef();
 
@@ -20,22 +15,24 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const result = await emailjs.sendForm(
-        'service_zy6qwcx',
-        'template_j59sla6',
-        formRef.current,
-        '8z-uHkOu9fhzu68wx'
-      );
-      console.log(result.text);
-      alert(`Messaged sent, you can as well send a message on whatsapp for quick response. Thanks😊`);
-    } catch (error) {
-      console.error(error);
-      if (error.message?.includes('Failed to fetch')) {
-        alert("No internet connection. Please try again.");
-      } else {
-        alert("Something went wrong. Please check your form or API keys.");
-      }
-    }
+  const result = await emailjs.sendForm(
+    'service_zy6qwcx',
+    'template_j59sla6',
+    formRef.current,
+    '8z-uHkOu9fhzu68wx'
+  );
+  console.log(result.text);
+
+  toast.success("Email sent! message us on WhatsApp for quicker response. Thanks 😊");
+} catch (error) {
+  console.error(error);
+
+  if (error.message?.includes("Failed to fetch")) {
+    toast.error("No internet connection. Please try again.");
+  } else {
+    toast.error("Something went wrong. Please check your form or API keys.");
+  }
+}
 
     e.target.reset();
   };
