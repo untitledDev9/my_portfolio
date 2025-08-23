@@ -27,7 +27,7 @@ const Contact = () => {
         '8z-uHkOu9fhzu68wx'
       );
       console.log(result.text);
-      alert(`${notify}`);
+      alert(`Messaged sent, you can as well send a message on whatsapp for quick response. Thanks😊`);
     } catch (error) {
       console.error(error);
       if (error.message?.includes('Failed to fetch')) {
