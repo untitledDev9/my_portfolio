@@ -54,7 +54,7 @@ const Hero = () => {
                   <FaWhatsapp />
                 </div>
               </a>
-              <a href="#">
+              {/* <a href="#">
                 <div className=' border-[#00FD9A] text-[#00FD9A] border-2 w-fit p-2 rounded-full    hover:bg-[#00FD9A] hover:font-semibold hover:text-black transition-colors duration-500 ease-in-out
               max-tablet:text-[24px] max-mobile:text-[18px] 
               '>
@@ -67,7 +67,7 @@ const Hero = () => {
               '>
                   <FiDownload />
                 </div>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
