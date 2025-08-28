@@ -17,7 +17,7 @@ const Hero = () => {
           max-mobile:text-[17px]
           max-mobile:mb-2
           '>Software Developer</h4>
-          <h2 className=' text-6xl font-semibold text-white max-tablet:text-[55px] max-mobile:text-[40px] max-mobile:mb-2'>Hello I'm </h2>
+          <h2 className=' text-6xl font-semibold text-white max-tablet:text-[55px] max-mobile:text-[40px] max-mobile:mb-2'>Hello I<span className='text-[#00FD9A]'>' </span>m </h2>
           <h2 className=' text-6xl font-semibold text-[#00FD9A] max-mobile:text-[45px] max-mobile:mb-2'>Ahmed Suleiman</h2>
         </div>
         <div className=' w-[90%] max-tablet:mx-auto'>

@@ -27,7 +27,7 @@ const Resume = () => {
         <div className='  max-tablet:text-center'>
           <h2 className=' text-[55px] text-white w-[400px] max-Laptop:text-[50px] max-tablet:w-full
           max-mobile:text-[40px]
-          '>Why hire me?</h2>
+          '>Why hire me<span className='text-[#00FD9A]'>?</span></h2>
           <p className=' text-[#BDBDC1] w-[80%] mb-8 mt-5 leading-8 max-tablet:mx-auto max-tablet:mt-2 max-tablet:leading-6
           max-mobile:text-[14px]
           '>Clean code, quick solutions, always learning, always improving.</p>

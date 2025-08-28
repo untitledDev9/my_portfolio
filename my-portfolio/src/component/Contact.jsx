@@ -73,15 +73,15 @@ const Contact = () => {
       <div className='flex flex-col gap-9 w-[32%] max-Laptop:w-[30%] max-Laptop:gap-6 max-tablet:w-[50%] max-mobile:w-full'>
         <div className='flex items-center gap-4 ...'>
           <div className='bg-[#313036e3] p-3 text-[#00FD9A] text-xl'><FaPhoneAlt /></div>
-          <div className='text-white text-[17px]'><p className='text-[#BDBDC1] text-[14px]'>Phone</p><p>(+234) 909 132 4697</p></div>
+          <div className='text-white text-[17px]'><p className='text-[#BDBDC1] text-[14px]'>Phone</p><p><span className='text-[#00FD9A]'>(</span>+234<span className='text-[#00FD9A]'>)</span> 909 132 4697</p></div>
         </div>
         <div className='flex items-center gap-4 ...'>
           <div className='bg-[#313036e3] p-3 text-[#00FD9A] text-xl'><MdEmail /></div>
-          <div className='text-white text-[17px]'><p className='text-[#BDBDC1] text-[14px]'>Email</p><p>ahmedsuleiman940@gmail.com</p></div>
+          <div className='text-white text-[17px]'><p className='text-[#BDBDC1] text-[14px]'>Email</p><p>ahmedsuleiman940<span className='text-[#00FD9A]'>@</span>gmail<span className='text-[#00FD9A]'>.</span>com</p></div>
         </div>
         <div className='flex items-center gap-4 ...'>
           <div className='bg-[#313036e3] p-3 text-[#00FD9A] text-xl'><FaLocationDot /></div>
-          <div className='text-white text-[17px]'><p className='text-[#BDBDC1] text-[14px]'>Address</p><p>Lagos, Nigeria.</p></div>
+          <div className='text-white text-[17px]'><p className='text-[#BDBDC1] text-[14px]'>Address</p><p>Lagos<span className='text-[#00FD9A]'>,</span> Nigeria<span className='text-[#00FD9A]'>.</span></p></div>
         </div>
       </div>
     </div>
