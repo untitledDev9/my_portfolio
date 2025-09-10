@@ -30,8 +30,6 @@ const Projects = () => {
           <div className="flex gap-3 text-[#08c17a] max-mobile:text-[13px]">
             <p>React<span className='text-white'>.</span>js,</p>
             <p>Tailwind<span className='text-white'>.</span>css,</p>
-            <p>Generative<span className='text-white'>.</span>Ai,</p>
-            <p>Supabase</p>
             <p>Node<span className='text-white'>.</span>js<span className='text-white'>(</span>Express<span className='text-white'>)</span></p>
           </div>
           <div className="w-[95%] h-[1px] bg-[#BDBDC1] mb-3"></div>
@@ -41,7 +39,7 @@ const Projects = () => {
                 <BsArrowUpRight size={23} />
               </div>
             </a>
-            <a href="https://github.com/untitledDev9/movie-api" target="_blank">
+            <a href="https://github.com/untitledDev9/speaktribe-frontend.git" target="_blank">
               <div className="text-white hover:text-[#00FD9A] bg-[#33333355] rounded-full p-3">
                 <FaGithub size={23} />
               </div>
@@ -56,7 +54,7 @@ const Projects = () => {
           <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none">
             <img src={speak} alt="" />
           </div>
-          <div className="w-[200px] absolute top-10 left-6 max-Laptop:w-[140px] max-tablet:hidden">
+          <div className="w-[300px] absolute top-10 -left-20 max-Laptop:w-[240px] max-tablet:hidden">
             <img src={speaktribe} alt="" />
           </div>
         </div>
