@@ -1,85 +1,85 @@
 import { useEffect, useState } from 'react';
 
 const Experience = () => {
+  const stats = [
+    { key: 'experience', label: 'Year(s) of experience', target: 1, suffix: '' },
+    { key: 'projects', label: 'Projects completed', target: 12, suffix: '' },
+    { key: 'tech', label: 'Technologies mastered', target: 6, suffix: '' },
+    { key: 'commits', label: 'Code commits', target: 500, suffix: '+' }
+  ];
 
-
-
-
-
-  const [commit, setCommit] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCommit(prev => {
-        if (prev >= 500) {
-          clearInterval(interval); 
-          return prev;
-        }
-        return prev + 1;
-      });
-    }, 70);
-
-    return () => clearInterval(interval); 
-  }, []);
-
-
-
-
-
-
-
-
-  const [counts, setCounts] = useState({
-    experience: 0,
-    projects: 0,
-    tech: 0,
-  });
+  const [counts, setCounts] = useState(
+    stats.reduce((acc, stat) => ({ ...acc, [stat.key]: 0 }), {})
+  );
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCounts(prev => {
-        const next = { ...prev };
+    const intervals = stats.map(stat => {
+      const increment = stat.target > 100 ? 5 : 1;
+      const speed = stat.target > 100 ? 30 : 150;
 
-        if (next.experience < 1) next.experience += 1;
-        if (next.projects < 12) next.projects += 1;
-        if (next.tech < 6) next.tech += 1;
+      return setInterval(() => {
+        setCounts(prev => {
+          if (prev[stat.key] >= stat.target) {
+            return prev;
+          }
+          const nextValue = Math.min(prev[stat.key] + increment, stat.target);
+          return { ...prev, [stat.key]: nextValue };
+        });
+      }, speed);
+    });
 
-        if (
-          next.experience >= 1 &&
-          next.projects >= 12 &&
-          next.tech >= 6
-          
-        ) {
-          clearInterval(interval);
-        }
-
-        return next;
-      });
-    }, 1500); // change speed here
-
-    return () => clearInterval(interval);
+    return () => intervals.forEach(clearInterval);
   }, []);
+
+  const formatNumber = (num, padLength = 2) => {
+    return String(num).padStart(padLength, '0');
+  };
 
   return (
     <div className='width flex items-center justify-center gap-10 text-white mt-14
-    max-tablet:grid max-tablet:grid-cols-2 max-tablet:gap-2max-tablet:place-items-center max-tablet:text-center max-tablet:w-[70%] max-tablet:gap-9 max-tablet:mx-auto 
+      max-tablet:grid max-tablet:grid-cols-2 max-tablet:place-items-center max-tablet:text-center 
+      max-tablet:w-[70%] max-tablet:gap-9 max-tablet:mx-auto max-mobile:w-[90%] max-mobile:gap-6
     '>
-      <div className='gap-2 flex items-center w-[170px] max-tablet:flex-col max-tablet:gap-1 max-tablet:w-[100%]' >
-        <p className='font-bold text-[56px] max-tablet:text-[40px]'>{String(counts.experience).padStart(2, '0')}</p>
-        <p className='w-[60%] text-[#BDBDC1] max-tablet:w-full max-tablet:text-[12px]'>Year(s) of experience</p>
-      </div>
-      <div className='gap-2 flex items-center w-[170px] max-tablet:flex-col max-tablet:gap-1 max-tablet:w-[100%] '>
-        <p className='font-bold text-[56px] max-tablet:text-[40px]'>{String(counts.projects).padStart(2, '0')}</p>
-        <p className='w-[60%] text-[#BDBDC1] max-tablet:w-full max-tablet:text-[12px]'>Projects completed</p>
-      </div>
-      <div className='gap-2 flex items-center w-[170px] max-tablet:flex-col max-tablet:gap-1 max-tablet:w-[100%]'>
-        <p className='font-bold text-[56px] max-tablet:text-[40px]'>{String(counts.tech).padStart(2, '0')}</p>
-        <p className='w-[60%] text-[#BDBDC1] max-tablet:w-full max-tablet:text-[12px]'>Technologies mastered</p>
-      </div>
-      <div className='gap-2 flex items-center w-[170px] max-tablet:flex-col max-tablet:gap-1 max-tablet:w-[100%]'>
-        <p className='font-bold text-[56px] max-tablet:text-[40px]'>{commit}</p>
-        <p className='w-[60%] text-[#BDBDC1] max-tablet:w-full max-tablet:text-[12px] max-tablet:mt-'>Code commits </p>
-      </div>
+      {stats.map((stat, index) => (
+        <div 
+          key={stat.key}
+          className='group gap-2 flex items-center w-[170px] transition-all duration-300 
+            hover:scale-105 max-tablet:flex-col max-tablet:gap-1 max-tablet:w-[100%]
+          '
+          style={{ 
+            animationDelay: `${index * 0.1}s`,
+            animation: 'fadeInUp 0.6s ease-out forwards',
+            opacity: 0
+          }}
+        >
+          <p className='font-bold text-[56px] max-tablet:text-[40px] text-[#00FD9A] 
+            transition-all duration-300 group-hover:text-white
+          '>
+            {stat.key === 'commits' 
+              ? counts[stat.key]
+              : formatNumber(counts[stat.key])}
+            {stat.suffix && <span className='text-[40px] max-tablet:text-[30px]'>{stat.suffix}</span>}
+          </p>
+          <p className='w-[60%] text-[#BDBDC1] leading-tight max-tablet:w-full max-tablet:text-[12px]
+            transition-colors duration-300 group-hover:text-white
+          '>
+            {stat.label}
+          </p>
+        </div>
+      ))}
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 };
