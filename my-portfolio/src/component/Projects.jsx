@@ -51,7 +51,7 @@ const Projects = () => {
     max-tablet:w-full max-tablet:justify-center max-tablet:bg-[#3330] max-tablet:transition-none max-tablet:pt-0"
           onClick={() => window.open("https://speaktribe-frontend.vercel.app", "_blank")}
         >
-          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none">
+          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none max-mobile:w-[340px] max-mobile:hover:w-[340px]">
             <img src={speak} alt="" />
           </div>
           <div className="w-[300px] absolute top-10 -left-20 max-Laptop:w-[240px] max-tablet:hidden">
@@ -95,7 +95,7 @@ const Projects = () => {
     max-tablet:w-full max-tablet:justify-center max-tablet:bg-[#3330] max-tablet:transition-none max-tablet:pt-0"
           onClick={() => window.open("https://movie-api-delta-dun.vercel.app/", "_blank")}
         >
-          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none">
+          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none max-mobile:w-[340px] max-mobile:hover:w-[340px]">
             <img src={Movie} alt="" />
           </div>
           <div className="w-[200px] absolute top-10 left-6 max-Laptop:w-[140px] max-tablet:hidden">
@@ -138,7 +138,7 @@ const Projects = () => {
     max-tablet:w-full max-tablet:justify-center max-tablet:bg-[#3330] max-tablet:transition-none max-tablet:pt-0"
           onClick={() => window.open("https://virtual-r-vert.vercel.app/", "_blank")}
         >
-          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none">
+          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none max-mobile:w-[340px] max-mobile:hover:w-[340px]">
             <img src={virtual} alt="" />
           </div>
           <div className="w-[200px] absolute top-10 left-6 max-Laptop:w-[140px] max-tablet:hidden">
@@ -160,8 +160,8 @@ const Projects = () => {
           </p>
           <div className="flex gap-3 text-[#08c17a] max-mobile:text-[13px]">
             <p>React<span className='text-white'>.</span>js,</p>
-              <p>Tailwind<span className='text-white'>.</span>css,</p>
-              <p>React State</p>
+            <p>Tailwind<span className='text-white'>.</span>css,</p>
+            <p>React State</p>
           </div>
           <div className="w-[95%] h-[1px] bg-[#BDBDC1] mb-3"></div>
           <div className="flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0">
@@ -182,7 +182,7 @@ const Projects = () => {
     max-tablet:w-full max-tablet:justify-center max-tablet:bg-[#3330] max-tablet:transition-none max-tablet:pt-0"
           onClick={() => window.open("https://piggy-vest-full-function.vercel.app/", "_blank")}
         >
-          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none">
+          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none max-mobile:w-[340px] max-mobile:hover:w-[340px]">
             <img src={piggy} alt="" />
           </div>
           <div className="w-[200px] absolute top-10 left-6 max-Laptop:w-[140px] max-tablet:hidden">
@@ -203,9 +203,9 @@ const Projects = () => {
             Worked with APIs, and had better understanding on Array methods
           </p>
           <div className="flex gap-3 text-[#08c17a] max-mobile:text-[13px]">
-                <p>React<span className='text-white'>.</span>js,</p>
-              <p>Tailwind<span className='text-white'>.</span>css,</p>
-              <p>API<span className='text-white'>s</span></p>
+            <p>React<span className='text-white'>.</span>js,</p>
+            <p>Tailwind<span className='text-white'>.</span>css,</p>
+            <p>API<span className='text-white'>s</span></p>
           </div>
           <div className="w-[95%] h-[1px] bg-[#BDBDC1] mb-3"></div>
           <div className="flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0">
@@ -226,7 +226,7 @@ const Projects = () => {
     max-tablet:w-full max-tablet:justify-center max-tablet:bg-[#3330] max-tablet:transition-none max-tablet:pt-0"
           onClick={() => window.open("https://country-api-gray.vercel.app/", "_blank")}
         >
-          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none">
+          <div className="w-[450px] hover:w-[480px] transition-all duration-400 ease-in-out max-Laptop:hover:w-[450px] max-tablet:transition-none max-mobile:w-[340px] max-mobile:hover:w-[340px]">
             <img src={country} alt="" />
           </div>
           <div className="w-[200px] absolute top-10 left-6 max-Laptop:w-[140px] max-tablet:hidden">
