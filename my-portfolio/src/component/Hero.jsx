@@ -39,10 +39,11 @@ const Hero = () => {
   ];
 
   const floatingIcons = [
-    { Icon: FaReact, color: "#61DAFB", delay: 0, position: "top-[20%] left-[5%]" },
-    { Icon: SiJavascript, color: "#F7DF1E", delay: 1, position: "top-[60%] left-[8%]" },
-    { Icon: FaNodeJs, color: "#339933", delay: 2, position: "top-[40%] right-[8%]" },
-    { Icon: SiTailwindcss, color: "#06B6D4", delay: 1.5, position: "top-[70%] right-[5%]" },
+    { Icon: FaReact, color: "#61DAFB", delay: 0, position: "top-[15%] left-[3%]", size: 45 },
+    { Icon: SiJavascript, color: "#F7DF1E", delay: 1, position: "top-[55%] left-[5%]", size: 40 },
+    { Icon: FaNodeJs, color: "#339933", delay: 2, position: "top-[35%] right-[6%]", size: 48 },
+    { Icon: SiTailwindcss, color: "#06B6D4", delay: 1.5, position: "top-[65%] right-[3%]", size: 42 },
+    { Icon: FaGithub, color: "#FFFFFF", delay: 0.5, position: "top-[80%] left-[10%]", size: 38 },
   ];
 
   const titles = [
@@ -93,7 +94,7 @@ const Hero = () => {
       {floatingIcons.map((item, index) => (
         <div
           key={index}
-          className={`absolute ${item.position} opacity-20 max-tablet:hidden`}
+          className={`absolute ${item.position} opacity-20 max-tablet:hidden z-500`}
           style={{
             animation: `float ${3 + index}s ease-in-out infinite`,
             animationDelay: `${item.delay}s`,
@@ -104,7 +105,7 @@ const Hero = () => {
       ))}
 
       {/* Cursor Glow Effect */}
-      <div 
+      {/* <div 
         className="fixed w-96 h-96 rounded-full pointer-events-none -z-10 blur-3xl opacity-20 max-tablet:hidden"
         style={{
           background: 'radial-gradient(circle, #00FD9A, transparent)',
@@ -112,7 +113,7 @@ const Hero = () => {
           top: mousePosition.y - 192,
           transition: 'left 0.3s, top 0.3s'
         }}
-      />
+      /> */}
 
       {/* Left Section - Text Content */}
       <div className='flex flex-col gap-6 flex-1 z-10'>
@@ -227,7 +228,7 @@ const Hero = () => {
           {/* Animated Rings */}
           <div className='absolute inset-0 rounded-full'>
             <div className='absolute inset-0 rounded-full border-2 border-[#00FD9A] opacity-30 animate-ping-slow'></div>
-            <div className='absolute inset-4 rounded-full border-2 border-[#00d484] opacity-20 animate-ping-slow' style={{ animationDelay: '1s' }}></div>
+            <div className='absolute inset-4 rounded-full border-233 border-[#00d484] opacity-20 animate-ping-slow' style={{ animationDelay: '1s' }}></div>
             <div className='absolute inset-8 rounded-full border-2 border-[#00FD9A] opacity-10 animate-ping-slow' style={{ animationDelay: '2s' }}></div>
           </div>
           
