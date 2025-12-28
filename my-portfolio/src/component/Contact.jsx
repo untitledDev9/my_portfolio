@@ -47,10 +47,10 @@ const Contact = () => {
     {
       icon: FaPhoneAlt,
       label: 'Phone',
-      value: '(+234) 909 132 4697',
-      displayValue: ['(+234)', ' 909 132 4697'],
+      value: '(+234) 704 075 1959',
+      displayValue: ['(+234)', ' 704 075 1959'],
       gradient: 'from-cyan-400 via-blue-500 to-purple-600',
-      link: 'tel:+2349091324697'
+      link: 'tel:+2347040751959'
     },
     {
       icon: MdEmail,
