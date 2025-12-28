@@ -12,7 +12,7 @@ const About = () => {
       <div className=' flex gap-14 mt-10 max-Laptop:gap-10 max-mobile:gap-6 max-mobile:flex-col'>
         <div className='text-[13px] text-[#BDBDC1] flex flex-col gap-5 max-mobile:text-[11px]'>
           <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Name <span className=' text-white text-[16px] max-mobile:text-[13px]'>Ahmed Suleiman</span></p>
-          <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Experience <span className=' text-white text-[16px] max-mobile:text-[13px]'>1+ Year(s)</span></p>
+          <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Experience <span className=' text-white text-[16px] max-mobile:text-[13px]'>2+ Year(s)</span></p>
           <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Nationality <span className=' text-white text-[16px] max-mobile:text-[13px]'>Nigeria</span></p>
           <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Freelance <span className=' text-white text-[16px] max-mobile:text-[13px]'>Available</span></p>
         </div>
