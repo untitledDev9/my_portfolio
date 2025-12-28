@@ -75,9 +75,9 @@ const Hero = () => {
   }, [displayText, isDeleting, currentTitle]);
 
   const stats = [
-    { value: "1+", label: "Years" },
+    { value: "2+", label: "Years" },
     { value: "12+", label: "Projects" },
-    { value: "500+", label: "Commits" }
+    { value: "1000+", label: "Commits" }
   ];
 
   return (
@@ -104,9 +104,9 @@ const Hero = () => {
         </div>
       ))}
 
-      {/* Cursor Glow Effect */}
+      {/* Cursor Glow Effect - Reduced opacity */}
       <div 
-        className="fixed w-96 h-96 rounded-full pointer-events-none -z-10 blur-3xl opacity-20 max-tablet:hidden"
+        className="fixed w-96 h-96 rounded-full pointer-events-none -z-10 blur-3xl opacity-10 max-tablet:hidden"
         style={{
           background: 'radial-gradient(circle, #00FD9A, transparent)',
           left: mousePosition.x - 192,
@@ -218,53 +218,87 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Right Section - Photo with 3D Effect */}
+      {/* Right Section - Photo with Modern Card Design */}
       <div 
         className={`relative flex-shrink-0 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        <div className='relative w-[400px] max-tablet:w-[350px] max-mobile:w-[280px]'>
-          {/* Animated Rings */}
-          <div className='absolute inset-0 rounded-full'>
-            <div className='absolute inset-0 rounded-full border-2 border-[#00FD9A] opacity-30 animate-ping-slow'></div>
-            <div className='absolute inset-4 rounded-full border-233 border-[#00d484] opacity-20 animate-ping-slow' style={{ animationDelay: '1s' }}></div>
-            <div className='absolute inset-8 rounded-full border-2 border-[#00FD9A] opacity-10 animate-ping-slow' style={{ animationDelay: '2s' }}></div>
-          </div>
+        <div className='relative w-[420px] max-tablet:w-[360px] max-mobile:w-[300px]'>
+          {/* Subtle Background Accent */}
+          <div className='absolute -inset-4 bg-gradient-to-br from-[#00FD9A]/5 via-transparent to-[#00FD9A]/10 rounded-3xl blur-2xl opacity-60'></div>
           
-          {/* Rotating Gradient Ring */}
-          <div className='absolute inset-[-10px] rounded-full bg-gradient-to-r from-[#00FD9A] via-[#00d484] to-[#00FD9A] animate-spin-slow blur-md opacity-50'></div>
-          
-          {/* Main Photo Container with 3D Transform */}
+          {/* Main Photo Container - Clean Modern Card */}
           <div 
-            className='relative rounded-full overflow-hidden
-              shadow-[0_0_60px_rgba(0,253,154,0.4)] 
-              transition-all duration-500
-              bg-gradient-to-br from-[#1a1a2e] via-[#0f0f1e] to-[#1a1a2e]
-              border-4 border-[#00FD9A]'
+            className='relative group'
             style={{
-              transform: isHovering ? 'rotateY(10deg) rotateX(10deg) scale(1.05)' : 'rotateY(0deg) rotateX(0deg) scale(1)',
-              transformStyle: 'preserve-3d',
+              transform: isHovering ? 'translateY(-8px)' : 'translateY(0)',
+              transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
             }}
           >
-            <div className='absolute inset-0 bg-gradient-to-br from-[#00FD9A]/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500'></div>
-            <img 
-              src={Photo} 
-              alt="Ahmed Suleiman - Software Developer" 
-              className='w-full h-full object-cover relative z-10'
-            />
+            {/* Corner Accents */}
+            <div className='absolute -top-3 -left-3 w-16 h-16 border-t-4 border-l-4 border-[#00FD9A] rounded-tl-3xl opacity-80'></div>
+            <div className='absolute -bottom-3 -right-3 w-16 h-16 border-b-4 border-r-4 border-[#00FD9A] rounded-br-3xl opacity-80'></div>
+            
+            {/* Card with Image */}
+            <div className='relative rounded-3xl overflow-hidden border-2 border-white/10 
+              bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1e]
+              shadow-2xl group-hover:shadow-[0_20px_60px_rgba(0,253,154,0.15)]
+              transition-all duration-500'>
+              
+              {/* Subtle Top Border Accent */}
+              <div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00FD9A] to-transparent'></div>
+              
+              {/* Image Container */}
+              <div className='relative aspect-[3/4] overflow-hidden'>
+                <img 
+                  src={Photo} 
+                  alt="Ahmed Suleiman - Software Developer" 
+                  className='w-full h-full object-cover object-center
+                    transition-transform duration-700 group-hover:scale-105'
+                  style={{
+                    filter: 'contrast(1.05) brightness(1.05)',
+                  }}
+                />
+                
+                {/* Subtle Gradient Overlay on Hover */}
+                <div className='absolute inset-0 bg-gradient-to-t from-[#00FD9A]/10 via-transparent to-transparent 
+                  opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+              </div>
+              
+              {/* Bottom Info Bar */}
+              <div className='absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent backdrop-blur-sm'>
+                <div className='flex items-center gap-2'>
+                  <div className='w-2 h-2 rounded-full bg-[#00FD9A] animate-pulse'></div>
+                  <span className='text-white text-sm font-medium'>Available for work</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Skill Badges */}
+            <div className='absolute -right-6 top-16 bg-[#1a1a2e] border border-[#00FD9A]/30 rounded-xl px-3 py-2 
+              shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300
+              max-tablet:hidden'>
+              <FaReact className='text-[#61DAFB]' size={24} />
+            </div>
+            
+            <div className='absolute -left-6 bottom-24 bg-[#1a1a2e] border border-[#00FD9A]/30 rounded-xl px-3 py-2 
+              shadow-lg transform -rotate-3 hover:rotate-0 transition-transform duration-300
+              max-tablet:hidden'>
+              <FaNodeJs className='text-[#339933]' size={24} />
+            </div>
           </div>
 
-          {/* Orbiting Particles */}
-          {[...Array(8)].map((_, i) => (
+          {/* Minimal Floating Particles */}
+          {[...Array(3)].map((_, i) => (
             <div
               key={i}
-              className='absolute w-2 h-2 bg-[#00FD9A] rounded-full opacity-60'
+              className='absolute w-1.5 h-1.5 bg-[#00FD9A]/40 rounded-full'
               style={{
-                top: '50%',
-                left: '50%',
-                animation: `orbit ${5 + i * 0.5}s linear infinite`,
-                animationDelay: `${i * 0.5}s`,
+                top: `${20 + i * 25}%`,
+                right: `${-5 + i * 2}%`,
+                animation: `floatParticle ${4 + i}s ease-in-out infinite`,
+                animationDelay: `${i * 0.8}s`,
               }}
             />
           ))}
@@ -276,13 +310,9 @@ const Hero = () => {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(5deg); }
         }
-        @keyframes ping-slow {
-          0%, 100% { transform: scale(1); opacity: 0.3; }
-          50% { transform: scale(1.15); opacity: 0.1; }
-        }
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+        @keyframes floatParticle {
+          0%, 100% { transform: translateY(0px); opacity: 0.4; }
+          50% { transform: translateY(-15px); opacity: 0.8; }
         }
         @keyframes gradient-x {
           0%, 100% { background-position: 0% 50%; }
@@ -297,16 +327,6 @@ const Hero = () => {
           25% { transform: rotate(20deg); }
           75% { transform: rotate(-20deg); }
         }
-        @keyframes orbit {
-          from {
-            transform: translate(-50%, -50%) rotate(0deg) translateX(220px) rotate(0deg);
-          }
-          to {
-            transform: translate(-50%, -50%) rotate(360deg) translateX(220px) rotate(-360deg);
-          }
-        }
-        .animate-ping-slow { animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite; }
-        .animate-spin-slow { animation: spin-slow 8s linear infinite; }
         .animate-gradient-x { animation: gradient-x 3s ease infinite; }
         .animate-blink { animation: blink 1s step-end infinite; }
         .animate-wave { animation: wave 2s ease-in-out infinite; }

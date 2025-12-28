@@ -30,13 +30,13 @@ const Projects = () => {
     setModalImage(image);
     setCurrentImageIndex(index);
     setAllImages(images);
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setModalImage(null);
     setAllImages([]);
-    document.body.style.overflow = 'unset'; // Restore scroll
+    document.body.style.overflow = 'unset';
   };
 
   const navigateImage = (direction) => {
@@ -59,7 +59,7 @@ const Projects = () => {
         {/* Close Button */}
         <button
           onClick={closeModal}
-          className="absolute top-4 right-4 z-50 text-white hover:text-[#FF6B35] bg-black/50 hover:bg-black/80 rounded-full p-3 transition-all duration-300 hover:scale-110"
+          className="absolute top-4 right-4 z-50 text-white hover:text-cyan-400 bg-black/50 hover:bg-black/80 rounded-full p-3 transition-all duration-300 hover:scale-110"
           aria-label="Close modal"
         >
           <BsX size={32} />
@@ -77,7 +77,7 @@ const Projects = () => {
               e.stopPropagation();
               navigateImage('prev');
             }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-[#FF6B35] bg-black/50 hover:bg-black/80 rounded-full p-4 transition-all duration-300 hover:scale-110 max-mobile:left-2 max-mobile:p-3"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-cyan-400 bg-black/50 hover:bg-black/80 rounded-full p-4 transition-all duration-300 hover:scale-110 max-mobile:left-2 max-mobile:p-3"
             aria-label="Previous image"
           >
             <BsChevronLeft size={28} className="max-mobile:w-5 max-mobile:h-5" />
@@ -103,7 +103,7 @@ const Projects = () => {
               e.stopPropagation();
               navigateImage('next');
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-[#FF6B35] bg-black/50 hover:bg-black/80 rounded-full p-4 transition-all duration-300 hover:scale-110 max-mobile:right-2 max-mobile:p-3"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-cyan-400 bg-black/50 hover:bg-black/80 rounded-full p-4 transition-all duration-300 hover:scale-110 max-mobile:right-2 max-mobile:p-3"
             aria-label="Next image"
           >
             <BsChevronRight size={28} className="max-mobile:w-5 max-mobile:h-5" />
@@ -135,12 +135,13 @@ const Projects = () => {
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [modalImage, currentImageIndex, allImages]);
+
   const appsData = [
     {
       id: "01",
       title: "GadgetVault",
       tagline: "Your Digital Safe",
-      description: "GadgetVault is a comprehensive device protection and verification platform designed to keep users safe in a world of rising gadget theft and fraud.It allows individuals and vendors to securely register their devices, verify electronics before purchase, and trade on a trusted marketplace where every user and device is properly verified. GadgetVault helps prevent stolen devices from circulating while protecting buyers and sellers from scams.",
+      description: "GadgetVault is a comprehensive device protection and verification platform designed to keep users safe in a world of rising gadget theft and fraud. It allows individuals and vendors to securely register their devices, verify electronics before purchase, and trade on a trusted marketplace where every user and device is properly verified. GadgetVault helps prevent stolen devices from circulating while protecting buyers and sellers from scams.",
       technologies: ["React Native", "Next.js", "Supabase", "Socket.IO"],
       features: [
         "Device Protection & IMEI Verification",
@@ -155,8 +156,9 @@ const Projects = () => {
         website: 'https://gadgetvaultng.vercel.app'
       },
       screenshots: [home, vault, profile, group, add, snap, report, help],
-      accentColor: "#FF6B35",
-      bgGradient: "from-orange-500/10 via-orange-600/5 to-orange-900/10"
+      accentColor: "#00D4FF", // Cyan/Blue
+      secondaryColor: "#8B5CF6", // Purple
+      bgGradient: "from-cyan-500/10 via-blue-500/5 to-purple-500/10"
     }
   ];
 
@@ -254,7 +256,7 @@ const Projects = () => {
             <div
               key={i}
               onClick={() => openModal(screenshot, i, screenshots)}
-              className="flex-shrink-0 w-[130px] aspect-[9/16] rounded-lg overflow-hidden border-2 border-white/20 hover:border-[#FF6B35] transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg hover:shadow-[#FF6B35]/20 max-mobile:w-[110px] group/img relative"
+              className="flex-shrink-0 w-[130px] aspect-[9/16] rounded-lg overflow-hidden border-2 border-white/20 hover:border-cyan-400 transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg hover:shadow-cyan-400/20 max-mobile:w-[110px] group/img relative"
             >
               <img
                 src={screenshot}
@@ -332,7 +334,7 @@ const Projects = () => {
           <div className="inline-block">
             <h2 className="text-6xl font-bold text-white mb-3 max-mobile:text-4xl relative">
               Mobile Apps
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#FF6B35] via-[#00FD9A] to-[#FF6B35] rounded-full"></div>
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-full"></div>
             </h2>
           </div>
           <p className="text-[#BDBDC1] mt-4 text-sm">Native mobile experiences</p>
@@ -342,23 +344,23 @@ const Projects = () => {
           {appsData.map((app, index) => (
             <div key={app.id} className="group/app">
               {/* App Showcase Card - Enhanced Design */}
-              <div className={`bg-gradient-to-br ${app.bgGradient} rounded-3xl p-10 max-mobile:p-6 border-2 border-white/5 hover:border-[#FF6B35]/30 transition-all duration-500 shadow-2xl hover:shadow-[#FF6B35]/10 mb-10`}>
+              <div className={`bg-gradient-to-br ${app.bgGradient} rounded-3xl p-10 max-mobile:p-6 border-2 border-white/5 hover:border-cyan-400/30 transition-all duration-500 shadow-2xl hover:shadow-cyan-400/10 mb-10`}>
                 {/* Header Section */}
                 <div className="flex items-start justify-between gap-6 mb-8 max-tablet:flex-col">
                   <div className="flex-1">
                     {/* Title Row */}
                     <div className="flex items-center gap-5 mb-4 max-mobile:gap-3">
                       <div className="relative">
-                        <h2 className="font-bold text-8xl text-transparent stroke-text max-mobile:text-6xl group-hover/app:text-[#FF6B35] transition-colors duration-300">
+                        <h2 className="font-bold text-8xl text-transparent stroke-text max-mobile:text-6xl group-hover/app:text-cyan-400 transition-colors duration-300">
                           {app.id}
                         </h2>
-                        <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#FF6B35] to-transparent rounded-full"></div>
+                        <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full"></div>
                       </div>
                       <div>
                         <h3 className="font-bold text-white text-[40px] max-mobile:text-[30px] leading-tight">
                           {app.title}
                         </h3>
-                        <p className="text-[#FF6B35] text-[18px] max-mobile:text-[15px] italic font-medium">
+                        <p className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-[18px] max-mobile:text-[15px] italic font-medium">
                           {app.tagline}
                         </p>
                       </div>
@@ -374,7 +376,7 @@ const Projects = () => {
                       {app.technologies.map((tech, i) => (
                         <span 
                           key={i}
-                          className="px-3 py-1 bg-[#00FD9A]/10 rounded-full border border-[#00FD9A]/20 hover:border-[#00FD9A]/40 transition-colors duration-300"
+                          className="px-3 py-1 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full border border-cyan-400/20 hover:border-cyan-400/40 transition-colors duration-300"
                         >
                           {tech}
                         </span>
@@ -383,31 +385,31 @@ const Projects = () => {
                   </div>
 
                   {/* Platform Links - Enhanced */}
-                  <div className="flex gap-4 max-tablet:w-full max-tablet:justify-center">
+                  <div className="flex gap-4 max-tablet:w-full max-tablet:justify-center max-tablet:flex-wrap">
                     {app.platforms.ios && (
                       <a href={app.platforms.ios} target="_blank" rel="noopener noreferrer">
-                        <div className="text-white hover:text-[#FF6B35] hover:bg-[#FF6B35]/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#FF6B35]/30 shadow-lg">
+                        <div className="text-white hover:text-cyan-400 hover:bg-cyan-400/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-cyan-400/30 shadow-lg">
                           <BsApple size={26} />
                         </div>
                       </a>
                     )}
                     {app.platforms.android && (
                       <a href={app.platforms.android} target="_blank" rel="noopener noreferrer">
-                        <div className="text-white hover:text-[#FF6B35] hover:bg-[#FF6B35]/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#FF6B35]/30 shadow-lg">
+                        <div className="text-white hover:text-cyan-400 hover:bg-cyan-400/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-cyan-400/30 shadow-lg">
                           <BsGooglePlay size={26} />
                         </div>
                       </a>
                     )}
                     {app.platforms.github && (
                       <a href={app.platforms.github} target="_blank" rel="noopener noreferrer">
-                        <div className="text-white hover:text-[#FF6B35] hover:bg-[#FF6B35]/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#FF6B35]/30 shadow-lg">
+                        <div className="text-white hover:text-cyan-400 hover:bg-cyan-400/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-cyan-400/30 shadow-lg">
                           <FaGithub size={26} />
                         </div>
                       </a>
                     )}
                     {app.platforms.website && (
                       <a href={app.platforms.website} target="_blank" rel="noopener noreferrer">
-                        <div className="text-white hover:text-[#FF6B35] hover:bg-[#FF6B35]/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-[#FF6B35]/30 shadow-lg">
+                        <div className="text-white hover:text-cyan-400 hover:bg-cyan-400/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-cyan-400/30 shadow-lg">
                           <FaGlobe size={26} />
                         </div>
                       </a>
@@ -416,20 +418,20 @@ const Projects = () => {
                 </div>
 
                 {/* Decorative Line */}
-                <div className="w-full h-[2px] bg-gradient-to-r from-[#FF6B35]/20 via-[#00FD9A]/20 to-transparent rounded-full mb-8"></div>
+                <div className="w-full h-[2px] bg-gradient-to-r from-cyan-400/20 via-blue-500/20 to-purple-500/20 rounded-full mb-8"></div>
 
                 {/* Features & Screenshots Grid - Improved Layout */}
                 <div className="grid grid-cols-1 xl:grid-cols-5 gap-8 max-tablet:gap-6">
                   {/* Features List - 2 columns */}
-                  <div className="xl:col-span-2 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl p-7 border border-white/5 hover:border-[#00FD9A]/20 transition-all duration-300">
+                  <div className="xl:col-span-2 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl p-7 border border-white/5 hover:border-cyan-400/20 transition-all duration-300">
                     <h4 className="text-white font-bold text-2xl mb-6 flex items-center gap-3">
-                      <span className="text-[#00FD9A] text-3xl">✦</span> 
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-3xl">✦</span> 
                       <span>Key Features</span>
                     </h4>
                     <ul className="space-y-4">
                       {app.features.map((feature, i) => (
                         <li key={i} className="text-[#BDBDC1] text-[16px] flex items-start gap-4 group/feature hover:text-white transition-colors duration-300">
-                          <span className="text-[#FF6B35] mt-1 text-lg group-hover/feature:scale-125 transition-transform duration-300">▹</span>
+                          <span className="text-cyan-400 mt-1 text-lg group-hover/feature:scale-125 transition-transform duration-300">▹</span>
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -437,9 +439,9 @@ const Projects = () => {
                   </div>
 
                   {/* Screenshots Preview - 3 columns - Netflix Style Carousel */}
-                  <div className="xl:col-span-3 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl p-7 border border-white/5 hover:border-[#FF6B35]/20 transition-all duration-300">
+                  <div className="xl:col-span-3 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl p-7 border border-white/5 hover:border-cyan-400/20 transition-all duration-300">
                     <h4 className="text-white font-bold text-2xl mb-6 flex items-center gap-3">
-                      <span className="text-[#FF6B35] text-3xl">✦</span> 
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 text-3xl">✦</span> 
                       <span>App Preview</span>
                     </h4>
                     <ScreenshotCarousel screenshots={app.screenshots} title={app.title} />
@@ -450,10 +452,10 @@ const Projects = () => {
               {/* Elegant Separator */}
               <div className="relative py-8">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-[#00FD9A]/30 to-transparent"></div>
+                  <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="bg-black px-6 py-2 text-[#00FD9A]/50 text-sm font-medium rounded-full border border-[#00FD9A]/20">
+                  <span className="bg-black px-6 py-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 text-sm font-medium rounded-full border border-cyan-400/20">
                     ◆
                   </span>
                 </div>
@@ -469,7 +471,7 @@ const Projects = () => {
           <div className="inline-block">
             <h2 className="text-6xl font-bold text-white mb-3 max-mobile:text-4xl relative">
               Web Projects
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#00FD9A] via-[#FF6B35] to-[#00FD9A] rounded-full"></div>
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#00FD9A] via-cyan-400 to-purple-500 rounded-full"></div>
             </h2>
           </div>
           <p className="text-[#BDBDC1] mt-4 text-sm">Full-stack web applications</p>
@@ -561,4 +563,4 @@ const Projects = () => {
   )
 }
 
-export default Projects 
+export default Projects
