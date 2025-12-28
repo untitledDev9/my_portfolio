@@ -105,7 +105,7 @@ const Hero = () => {
       ))}
 
       {/* Cursor Glow Effect */}
-      {/* <div 
+      <div 
         className="fixed w-96 h-96 rounded-full pointer-events-none -z-10 blur-3xl opacity-20 max-tablet:hidden"
         style={{
           background: 'radial-gradient(circle, #00FD9A, transparent)',
@@ -113,7 +113,7 @@ const Hero = () => {
           top: mousePosition.y - 192,
           transition: 'left 0.3s, top 0.3s'
         }}
-      /> */}
+      />
 
       {/* Left Section - Text Content */}
       <div className='flex flex-col gap-6 flex-1 z-10'>
