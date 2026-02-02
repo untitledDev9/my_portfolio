@@ -1,30 +1,43 @@
-import React, { useRef, useState } from 'react'
-import Movie from '../assets/movie-api-desktop.png'
-import Movie2 from '../assets/movie-api-mobile.png'
-import virtual from '../assets/virtual-desktop.png'
-import virtual2 from '../assets/virtual-mobile.png'
-import country from '../assets/country-desktop.png'
-import country2 from '../assets/country-mobile.png'
-import { BsArrowUpRight, BsApple, BsGooglePlay, BsChevronLeft, BsChevronRight, BsX } from "react-icons/bs";
-import { FaGithub, FaGlobe } from "react-icons/fa";
-import piggy from '../assets/piggy-desktop.png'
-import piggy2 from '../assets/piggy-mobile.png'
-import speak from '../assets/speaktribe-desktop.png'
-import speaktribe from '../assets/speaktribe-mobile.png'
+import React, { useRef, useState, useEffect } from 'react'
+import { BsArrowUpRight, BsChevronLeft, BsChevronRight, BsX, BsArrowRight, BsArrowDown } from "react-icons/bs";
+import { FaGithub, FaGlobe, FaGooglePlay } from "react-icons/fa";
+import { HiSparkles, HiShieldCheck, HiChatAlt2, HiLocationMarker, HiUserGroup, HiBadgeCheck, HiHome, HiCurrencyDollar } from "react-icons/hi";
+
 // GadgetVault app screenshots
-import add from '../assets/mobile/add.jpg'
-import home from '../assets/mobile/home.jpg'
-import profile from '../assets/mobile/profile.jpg'
-import group from '../assets/mobile/groupp.jpg'
-import report from '../assets/mobile/report.jpg'
-import help from '../assets/mobile/help.jpg'
-import snap from '../assets/mobile/snap.jpg'
-import vault from '../assets/mobile/vault.jpg'
+import add from '../assets/mobile/gv/add.jpg'
+import home from '../assets/mobile/gv/home.jpg'
+import profile from '../assets/mobile/gv/profile.jpg'
+import group from '../assets/mobile/gv/groupp.jpg'
+import report from '../assets/mobile/gv/report.jpg'
+import help from '../assets/mobile/gv/help.jpg'
+import snap from '../assets/mobile/gv/snap.jpg'
+import vault from '../assets/mobile/gv/vault.jpg'
+// Roomie app screenshots
+import one from '../assets/mobile/rommie/one.jpeg'
+import two from '../assets/mobile/rommie/two.jpeg'
+import three from '../assets/mobile/rommie/three.jpeg'
+import four from '../assets/mobile/rommie/four.jpeg'
+import five from '../assets/mobile/rommie/five.jpeg'
+import six from '../assets/mobile/rommie/six.jpeg'
+import seven from '../assets/mobile/rommie/seven.jpeg'
+// web app screenshot
+import vaayakMobile from '../assets/web/vaayakMobile.png'
+import vaayakDesktop from '../assets/web/vaayakDesktop.png'
+import sharplookMobile from '../assets/web/sharplookMobile.png'
+import sharplookDesktop from '../assets/web/sharplookDesktop.png'
+import sttechlabMobile from '../assets/web/sttechlabMobile.png'
+import sttechlabDesktop from '../assets/web/sttechlabDesktop.png'
+
 
 const Projects = () => {
   const [modalImage, setModalImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [allImages, setAllImages] = useState([]);
+  const [activeScreenshot, setActiveScreenshot] = useState(0);
+  const [activeAppIndex, setActiveAppIndex] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const heroRef = useRef(null);
 
   const openModal = (image, index, images) => {
     setModalImage(image);
@@ -40,114 +53,66 @@ const Projects = () => {
   };
 
   const navigateImage = (direction) => {
-    const newIndex = direction === 'next' 
-      ? (currentImageIndex + 1) % allImages.length 
+    const newIndex = direction === 'next'
+      ? (currentImageIndex + 1) % allImages.length
       : (currentImageIndex - 1 + allImages.length) % allImages.length;
     setCurrentImageIndex(newIndex);
     setModalImage(allImages[newIndex]);
   };
 
-  // Image Modal Component
-  const ImageModal = () => {
-    if (!modalImage) return null;
-
-    return (
-      <div 
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4"
-        onClick={closeModal}
-      >
-        {/* Close Button */}
-        <button
-          onClick={closeModal}
-          className="absolute top-4 right-4 z-50 text-white hover:text-cyan-400 bg-black/50 hover:bg-black/80 rounded-full p-3 transition-all duration-300 hover:scale-110"
-          aria-label="Close modal"
-        >
-          <BsX size={32} />
-        </button>
-
-        {/* Image Counter */}
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 text-white bg-black/50 px-4 py-2 rounded-full text-sm">
-          {currentImageIndex + 1} / {allImages.length}
-        </div>
-
-        {/* Previous Button */}
-        {allImages.length > 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              navigateImage('prev');
-            }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-cyan-400 bg-black/50 hover:bg-black/80 rounded-full p-4 transition-all duration-300 hover:scale-110 max-mobile:left-2 max-mobile:p-3"
-            aria-label="Previous image"
-          >
-            <BsChevronLeft size={28} className="max-mobile:w-5 max-mobile:h-5" />
-          </button>
-        )}
-
-        {/* Image Container */}
-        <div 
-          className="relative max-w-lg w-full max-h-[90vh] flex items-center justify-center"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <img
-            src={modalImage}
-            alt="Full screen preview"
-            className="w-full h-auto max-h-[90vh] object-contain rounded-2xl shadow-2xl"
-          />
-        </div>
-
-        {/* Next Button */}
-        {allImages.length > 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              navigateImage('next');
-            }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:text-cyan-400 bg-black/50 hover:bg-black/80 rounded-full p-4 transition-all duration-300 hover:scale-110 max-mobile:right-2 max-mobile:p-3"
-            aria-label="Next image"
-          >
-            <BsChevronRight size={28} className="max-mobile:w-5 max-mobile:h-5" />
-          </button>
-        )}
-
-        {/* Keyboard hint */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-xs max-mobile:hidden">
-          Use arrow keys or swipe to navigate • Press ESC to close
-        </div>
-      </div>
-    );
+  // Switch app with transition
+  const switchApp = (index) => {
+    if (index === activeAppIndex) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveAppIndex(index);
+      setActiveScreenshot(0);
+      setIsTransitioning(false);
+    }, 200);
   };
 
   // Keyboard navigation
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyPress = (e) => {
       if (!modalImage) return;
-      
-      if (e.key === 'Escape') {
-        closeModal();
-      } else if (e.key === 'ArrowLeft') {
-        navigateImage('prev');
-      } else if (e.key === 'ArrowRight') {
-        navigateImage('next');
-      }
+      if (e.key === 'Escape') closeModal();
+      else if (e.key === 'ArrowLeft') navigateImage('prev');
+      else if (e.key === 'ArrowRight') navigateImage('next');
     };
-
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [modalImage, currentImageIndex, allImages]);
 
+  // Mouse parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        setMousePosition({
+          x: (e.clientX - rect.left - rect.width / 2) / 50,
+          y: (e.clientY - rect.top - rect.height / 2) / 50
+        });
+      }
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // ============================================
+  // APP DATA - Add your apps here
+  // ============================================
   const appsData = [
     {
       id: "01",
       title: "GadgetVault",
       tagline: "Your Digital Safe",
-      description: "GadgetVault is a comprehensive device protection and verification platform designed to keep users safe in a world of rising gadget theft and fraud. It allows individuals and vendors to securely register their devices, verify electronics before purchase, and trade on a trusted marketplace where every user and device is properly verified. GadgetVault helps prevent stolen devices from circulating while protecting buyers and sellers from scams.",
+      description: "A comprehensive device protection and verification platform designed to keep users safe. Register devices, verify electronics before purchase, and trade on a trusted marketplace.",
       technologies: ["React Native", "Next.js", "Supabase", "Socket.IO"],
       features: [
-        "Device Protection & IMEI Verification",
-        "Secure Marketplace with Verified Users",
-        "Real-time Chat & Notifications",
-        "Location-based Market Groups"
+        { icon: HiShieldCheck, title: "Device Protection", desc: "IMEI verification & theft prevention" },
+        { icon: HiChatAlt2, title: "Real-time Chat", desc: "Instant messaging with notifications" },
+        { icon: HiLocationMarker, title: "Market Groups", desc: "Location-based trading communities" },
+        { icon: HiSparkles, title: "Verified Users", desc: "Trusted marketplace with KYC" },
       ],
       platforms: {
         ios: null,
@@ -156,408 +121,542 @@ const Projects = () => {
         website: 'https://gadgetvaultng.vercel.app'
       },
       screenshots: [home, vault, profile, group, add, snap, report, help],
-      accentColor: "#00D4FF", // Cyan/Blue
-      secondaryColor: "#8B5CF6", // Purple
-      bgGradient: "from-cyan-500/10 via-blue-500/5 to-purple-500/10"
-    }
+    },
+    {
+      id: "02",
+      title: "Roomie",
+      tagline: "Match. Connect. Move In.",
+      description: "A secure roommate matching platform that helps users find compatible, verified roommates, discover housing, and build trusted living arrangements through smart lifestyle-based matching.",
+      technologies: ["React Native", "AI Matching", "Real-time Chat", "Verification"],
+      features: [
+        { icon: HiUserGroup, title: "Smart Matching", desc: "Lifestyle & preference-based roommate matching" },
+        { icon: HiBadgeCheck, title: "Verified Users", desc: "ID and social verification for safety" },
+        { icon: HiHome, title: "Housing Listings", desc: "Browse verified on-campus & off-campus housing" },
+        { icon: HiChatAlt2, title: "Chat & Connect", desc: "Message and build rapport before moving in" },
+        { icon: HiCurrencyDollar, title: "Expense Splitting", desc: "Track rent, bills, and shared expenses" },
+        { icon: HiShieldCheck, title: "Secure Platform", desc: "Encrypted system with privacy protection" }
+      ],
+      platforms: {
+        ios: null,
+        android: null,
+        github: null,
+        website: "https://www.roomieapp.com"
+      },
+      screenshots: [one, two, three, four, five, six, seven],
+    },
+    // ============================================
+    // ADD MORE APPS HERE - Just copy this template
+    // ============================================
+    // {
+    //   id: "03",
+    //   title: "YourAppName",
+    //   tagline: "Your Catchy Tagline",
+    //   description: "Description of what your app does...",
+    //   technologies: ["Tech1", "Tech2", "Tech3"],
+    //   features: [
+    //     { icon: HiSparkles, title: "Feature 1", desc: "Feature description" },
+    //     { icon: HiShieldCheck, title: "Feature 2", desc: "Feature description" },
+    //   ],
+    //   platforms: {
+    //     ios: "https://apps.apple.com/...",      // or null
+    //     android: "https://play.google.com/...", // or null
+    //     github: "https://github.com/...",       // or null
+    //     website: "https://yourapp.com"          // or null
+    //   },
+    //   screenshots: [img1, img2, img3],
+    // },
   ];
 
   const projectsData = [
     {
       id: "01",
-      title: "Local Language Web-App",
-      description: "A Full-Stack Local Learning Language Web-App (SpeakTribe), to learn local languages e.g yoruba, hausa, igbo.",
-      technologies: ["React.js", "Tailwind.css", "Node.js(Express)"],
-      liveUrl: "https://speaktribe-frontend.vercel.app",
-      githubUrl: "https://github.com/untitledDev9/speaktribe-frontend.git",
-      desktopImage: speak,
-      mobileImage: speaktribe,
-      bgColor: "bg-[#266361]",
-      mobilePosition: "-left-20"
+      title: "VAAYAK Motors",
+      subtitle: "Corporate Website",
+      description: "Official website for VAAYAK Motors — a commercial vehicle manufacturer providing fleet solutions and heavy-duty trucks for industry-specific needs.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      liveUrl: "https://www.vaayakmotors.com/",
+      githubUrl: "",
+      desktopImage: vaayakDesktop,
+      mobileImage: vaayakMobile,
+      year: "2024"
     },
     {
       id: "02",
-      title: "Netflix Clone",
-      description: "A Netflix clone, with ability to search and navigate through all movies",
-      technologies: ["React.js", "Tailwind.css", "Owl-carousel"],
-      liveUrl: "https://movie-api-delta-dun.vercel.app/",
-      githubUrl: "https://github.com/untitledDev9/movie-api",
-      desktopImage: Movie,
-      mobileImage: Movie2,
-      bgColor: "bg-[#1a1a2e]",
-      mobilePosition: "left-6"
+      title: "Sharplook Website",
+      subtitle: "Portfolio / Business Web-App",
+      description: "Official website for Sharplook — a modern web platform showcasing projects, services, and digital solutions with a clean and interactive UI.",
+      technologies: ["Tailwind.css", "Next.js"],
+      liveUrl: "https://sharplook-website.vercel.app/",
+      githubUrl: "", // Add repo URL if available
+      desktopImage: sharplookDesktop, // Replace with your imported desktop image
+      mobileImage: sharplookMobile,   // Replace with your imported mobile image
+      year: "2026"
     },
-    {
-      id: "03",
-      title: "Landing Page",
-      description: "Built a simple Landing page that improved my knowledge on CSS grid",
-      technologies: ["React.js", "Tailwind.css"],
-      liveUrl: "https://virtual-r-vert.vercel.app/",
-      githubUrl: "https://github.com/untitledDev9/VirtualR",
-      desktopImage: virtual,
-      mobileImage: virtual2,
-      bgColor: "bg-[#2d3561]",
-      mobilePosition: "left-6"
-    },
-    {
-      id: "04",
-      title: "PiggyVest",
-      description: "Cloned a Real life website, to build more knowledge on how Pro Devs create websites",
-      technologies: ["React.js", "Tailwind.css", "React State"],
-      liveUrl: "https://piggy-vest-full-function.vercel.app/",
-      githubUrl: "https://github.com/untitledDev9/piggyVest-full-function",
-      desktopImage: piggy,
-      mobileImage: piggy2,
-      bgColor: "bg-[#0c4a6e]",
-      mobilePosition: "left-6"
-    },
-    {
-      id: "05",
-      title: "Countries API",
-      description: "Worked with APIs, and had better understanding on Array methods",
-      technologies: ["React.js", "Tailwind.css", "APIs"],
-      liveUrl: "https://country-api-gray.vercel.app/",
-      githubUrl: "https://github.com/untitledDev9/Country-Api",
-      desktopImage: country,
-      mobileImage: country2,
-      bgColor: "bg-[#1e3a5f]",
-      mobilePosition: "left-6"
-    }
-  ];
+  {
+    id: "03",
+    title: "ST Tech Lab",
+    subtitle: "Corporate / Tech Services Website",
+    description: "Official website for ST Tech Lab — a tech solutions provider offering software, IT services, and digital products.",
+    technologies: ["React.js", "Tailwind.css", "HTML", "CSS", "JavaScript"],
+    liveUrl: "https://sttechlab.com/",
+    githubUrl: "", // add GitHub repo URL if available
+    desktopImage: sttechlabDesktop,
+    mobileImage: sttechlabMobile,
+    year: "2025"
+  }
+];
 
-  const ScreenshotCarousel = ({ screenshots, title }) => {
-    const scrollRef = useRef(null);
 
-    const scroll = (direction) => {
-      if (scrollRef.current) {
-        const scrollAmount = direction === 'left' ? -280 : 280;
-        scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
-    };
+  // Auto-rotate screenshots for current app
+  useEffect(() => {
+    const currentApp = appsData[activeAppIndex];
+    const screenshotCount = currentApp.screenshots.length;
+
+    const timer = setInterval(() => {
+      setActiveScreenshot(prev => (prev + 1) % screenshotCount);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [activeAppIndex]);
+
+  // Current active app
+  const currentApp = appsData[activeAppIndex];
+
+  // Fullscreen Modal
+  const ImageModal = () => {
+    if (!modalImage) return null;
 
     return (
-      <div className="relative group/carousel">
-        {/* Left Arrow */}
-        <button
-          onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/80 hover:bg-black text-white p-2 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:scale-110 max-mobile:opacity-100 max-mobile:bg-black/60"
-          aria-label="Scroll left"
-        >
-          <BsChevronLeft size={20} />
+      <div className="fixed inset-0 z-50 flex items-center justify-center" onClick={closeModal}>
+        <div className="absolute inset-0 bg-[#0a0a0b]/98 backdrop-blur-3xl" />
+
+        <button onClick={closeModal} className="absolute top-6 right-6 z-50 w-14 h-14 flex items-center justify-center text-white/40 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] rounded-2xl transition-all duration-500 group border border-white/[0.05]" aria-label="Close">
+          <BsX size={28} className="group-hover:rotate-90 transition-transform duration-500" />
         </button>
 
-        {/* Screenshots Container */}
-        <div
-          ref={scrollRef}
-          className="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth max-mobile:gap-2 pb-2"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {screenshots.map((screenshot, i) => (
-            <div
-              key={i}
-              onClick={() => openModal(screenshot, i, screenshots)}
-              className="flex-shrink-0 w-[130px] aspect-[9/16] rounded-lg overflow-hidden border-2 border-white/20 hover:border-cyan-400 transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg hover:shadow-cyan-400/20 max-mobile:w-[110px] group/img relative"
-            >
-              <img
-                src={screenshot}
-                alt={`${title} screenshot ${i + 1}`}
-                className="w-full h-full object-cover"
-              />
-              {/* Hover overlay with zoom icon */}
-              <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                <div className="opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-white/20 backdrop-blur-sm rounded-full p-2">
-                  <svg 
-                    className="w-6 h-6 text-white" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" 
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
+        <div className="absolute top-6 left-6 z-50">
+          <div className="flex items-baseline gap-1 font-mono">
+            <span className="text-4xl font-light text-white">{String(currentImageIndex + 1).padStart(2, '0')}</span>
+            <span className="text-white/20 text-lg">/</span>
+            <span className="text-white/30 text-lg">{String(allImages.length).padStart(2, '0')}</span>
+          </div>
+        </div>
+
+        {allImages.length > 1 && (
+          <>
+            <button onClick={(e) => { e.stopPropagation(); navigateImage('prev'); }} className="absolute left-6 top-1/2 -translate-y-1/2 w-16 h-32 flex items-center justify-center text-white/30 hover:text-white transition-all duration-300 group max-mobile:left-2 max-mobile:w-12">
+              <BsChevronLeft size={32} className="group-hover:-translate-x-1 transition-transform" />
+            </button>
+            <button onClick={(e) => { e.stopPropagation(); navigateImage('next'); }} className="absolute right-6 top-1/2 -translate-y-1/2 w-16 h-32 flex items-center justify-center text-white/30 hover:text-white transition-all duration-300 group max-mobile:right-2 max-mobile:w-12">
+              <BsChevronRight size={32} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </>
+        )}
+
+        <div className="relative max-w-sm w-full px-4" onClick={(e) => e.stopPropagation()}>
+          <img src={modalImage} alt="" className="relative w-full h-auto max-h-[85vh] object-contain rounded-[2rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)]" />
+        </div>
+
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 max-w-[90vw] overflow-x-auto scrollbar-hide p-2">
+          {allImages.map((img, i) => (
+            <button key={i} onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(i); setModalImage(img); }}
+              className={`flex-shrink-0 w-12 h-16 rounded-xl overflow-hidden transition-all duration-500 ${i === currentImageIndex ? 'ring-2 ring-white/80 scale-110' : 'opacity-30 hover:opacity-60 grayscale hover:grayscale-0'}`}>
+              <img src={img} alt="" className="w-full h-full object-cover" />
+            </button>
           ))}
-        </div>
-
-        {/* Right Arrow */}
-        <button
-          onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/80 hover:bg-black text-white p-2 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:scale-110 max-mobile:opacity-100 max-mobile:bg-black/60"
-          aria-label="Scroll right"
-        >
-          <BsChevronRight size={20} />
-        </button>
-
-        {/* Scroll Indicator */}
-        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[#BDBDC1] text-xs opacity-50 max-mobile:hidden">
-          Scroll for more • Click to view →
-        </div>
-        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[#BDBDC1] text-xs opacity-50 hidden max-mobile:block">
-          Tap to view
         </div>
       </div>
     );
   };
 
-  const renderTechnologies = (technologies) => {
-    return technologies.map((tech, index) => {
-      const parts = tech.split(/(\.|-)|\(|\)/);
-      return (
-        <p key={index}>
-          {parts.map((part, i) => {
-            if (part === '.' || part === '-' || part === '(' || part === ')') {
-              return <span key={i} className='text-white'>{part}</span>;
-            }
-            return part;
-          })}
-          {index < technologies.length - 1 && ','}
-        </p>
-      );
-    });
-  };
-
   return (
     <>
-      {/* Image Modal */}
       <ImageModal />
 
-      <div id='work' className='flex-col flex gap-32 mb-10 max-tablet:gap-20 max-mobile:px-4'>
-      {/* ============ MOBILE APPS SECTION ============ */}
-      <div className="mb-16">
-        <div className="text-center mb-16 max-mobile:mb-10">
-          <div className="inline-block">
-            <h2 className="text-6xl font-bold text-white mb-3 max-mobile:text-4xl relative">
-              Mobile Apps
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-full"></div>
-            </h2>
+      <div id='work' className='relative'>
+
+        {/* ==================== APP SWITCHER ==================== */}
+        {appsData.length > 1 && (
+          <div className="width pt-10">
+            <div className="flex items-center gap-2 max-mobile:flex-wrap max-mobile:justify-center">
+              <span className="text-white/30 text-xs font-mono uppercase tracking-wider mr-4 max-mobile:w-full max-mobile:text-center max-mobile:mb-2">Apps</span>
+              {appsData.map((app, index) => (
+                <button
+                  key={app.id}
+                  onClick={() => switchApp(index)}
+                  className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${index === activeAppIndex
+                      ? 'bg-[#00FD9A] text-[#09090b]'
+                      : 'bg-white/[0.03] text-white/50 hover:text-white hover:bg-white/[0.06] border border-white/[0.05]'
+                    }`}
+                >
+                  {app.title}
+                </button>
+              ))}
+            </div>
           </div>
-          <p className="text-[#BDBDC1] mt-4 text-sm">Native mobile experiences</p>
-        </div>
+        )}
 
-        <div className="flex flex-col gap-24 max-tablet:gap-16">
-          {appsData.map((app, index) => (
-            <div key={app.id} className="group/app">
-              {/* App Showcase Card - Enhanced Design */}
-              <div className={`bg-gradient-to-br ${app.bgGradient} rounded-3xl p-10 max-mobile:p-6 border-2 border-white/5 hover:border-cyan-400/30 transition-all duration-500 shadow-2xl hover:shadow-cyan-400/10 mb-10`}>
-                {/* Header Section */}
-                <div className="flex items-start justify-between gap-6 mb-8 max-tablet:flex-col">
-                  <div className="flex-1">
-                    {/* Title Row */}
-                    <div className="flex items-center gap-5 mb-4 max-mobile:gap-3">
-                      <div className="relative">
-                        <h2 className="font-bold text-8xl text-transparent stroke-text max-mobile:text-6xl group-hover/app:text-cyan-400 transition-colors duration-300">
-                          {app.id}
-                        </h2>
-                        <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full"></div>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-white text-[40px] max-mobile:text-[30px] leading-tight">
-                          {app.title}
-                        </h3>
-                        <p className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-[18px] max-mobile:text-[15px] italic font-medium">
-                          {app.tagline}
-                        </p>
-                      </div>
-                    </div>
+        {/* ==================== HERO SECTION ==================== */}
+        <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden">
+          <div className={`width relative z-10 pt-10 transition-all duration-300 ${isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+            <div className="grid grid-cols-12 gap-6 items-center max-lg:grid-cols-1">
 
-                    {/* Description */}
-                    <p className="leading-8 text-[17px] text-[#BDBDC1] max-mobile:text-[15px] max-mobile:leading-7 mb-6 max-w-3xl">
-                      {app.description}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex gap-3 text-[#00FD9A] max-mobile:text-[13px] flex-wrap mb-2">
-                      {app.technologies.map((tech, i) => (
-                        <span 
-                          key={i}
-                          className="px-3 py-1 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full border border-cyan-400/20 hover:border-cyan-400/40 transition-colors duration-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Platform Links - Enhanced */}
-                  <div className="flex gap-4 max-tablet:w-full max-tablet:justify-center max-tablet:flex-wrap">
-                    {app.platforms.ios && (
-                      <a href={app.platforms.ios} target="_blank" rel="noopener noreferrer">
-                        <div className="text-white hover:text-cyan-400 hover:bg-cyan-400/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-cyan-400/30 shadow-lg">
-                          <BsApple size={26} />
-                        </div>
-                      </a>
-                    )}
-                    {app.platforms.android && (
-                      <a href={app.platforms.android} target="_blank" rel="noopener noreferrer">
-                        <div className="text-white hover:text-cyan-400 hover:bg-cyan-400/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-cyan-400/30 shadow-lg">
-                          <BsGooglePlay size={26} />
-                        </div>
-                      </a>
-                    )}
-                    {app.platforms.github && (
-                      <a href={app.platforms.github} target="_blank" rel="noopener noreferrer">
-                        <div className="text-white hover:text-cyan-400 hover:bg-cyan-400/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-cyan-400/30 shadow-lg">
-                          <FaGithub size={26} />
-                        </div>
-                      </a>
-                    )}
-                    {app.platforms.website && (
-                      <a href={app.platforms.website} target="_blank" rel="noopener noreferrer">
-                        <div className="text-white hover:text-cyan-400 hover:bg-cyan-400/10 bg-[#1a1a1a] rounded-2xl p-4 transition-all duration-300 hover:scale-110 border border-white/10 hover:border-cyan-400/30 shadow-lg">
-                          <FaGlobe size={26} />
-                        </div>
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                {/* Decorative Line */}
-                <div className="w-full h-[2px] bg-gradient-to-r from-cyan-400/20 via-blue-500/20 to-purple-500/20 rounded-full mb-8"></div>
-
-                {/* Features & Screenshots Grid - Improved Layout */}
-                <div className="grid grid-cols-1 xl:grid-cols-5 gap-8 max-tablet:gap-6">
-                  {/* Features List - 2 columns */}
-                  <div className="xl:col-span-2 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl p-7 border border-white/5 hover:border-cyan-400/20 transition-all duration-300">
-                    <h4 className="text-white font-bold text-2xl mb-6 flex items-center gap-3">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-3xl">✦</span> 
-                      <span>Key Features</span>
-                    </h4>
-                    <ul className="space-y-4">
-                      {app.features.map((feature, i) => (
-                        <li key={i} className="text-[#BDBDC1] text-[16px] flex items-start gap-4 group/feature hover:text-white transition-colors duration-300">
-                          <span className="text-cyan-400 mt-1 text-lg group-hover/feature:scale-125 transition-transform duration-300">▹</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Screenshots Preview - 3 columns - Netflix Style Carousel */}
-                  <div className="xl:col-span-3 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl p-7 border border-white/5 hover:border-cyan-400/20 transition-all duration-300">
-                    <h4 className="text-white font-bold text-2xl mb-6 flex items-center gap-3">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 text-3xl">✦</span> 
-                      <span>App Preview</span>
-                    </h4>
-                    <ScreenshotCarousel screenshots={app.screenshots} title={app.title} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Elegant Separator */}
-              <div className="relative py-8">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
-                </div>
-                <div className="relative flex justify-center">
-                  <span className="bg-black px-6 py-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 text-sm font-medium rounded-full border border-cyan-400/20">
-                    ◆
+              {/* Left: Content */}
+              <div className="col-span-5 max-lg:col-span-1 max-lg:text-center max-lg:order-2">
+                {/* Eyebrow */}
+                <div className="inline-flex items-center gap-3 mb-8">
+                  <span className="text-[#00FD9A] font-mono text-xs tracking-[0.3em] uppercase">
+                    {String(activeAppIndex + 1).padStart(2, '0')} / {String(appsData.length).padStart(2, '0')}
                   </span>
+                  <div className="w-16 h-px bg-gradient-to-r from-[#00FD9A] to-transparent" />
+                </div>
+
+                {/* Title - splits the app name into two parts */}
+                <h1 className="text-[clamp(3rem,8vw,5.5rem)] font-extralight text-white leading-[0.95] tracking-tight mb-4">
+                  {currentApp.title.split('').slice(0, Math.ceil(currentApp.title.length / 2)).join('')}
+                  <span className="block font-medium text-[#00FD9A]">
+                    {currentApp.title.split('').slice(Math.ceil(currentApp.title.length / 2)).join('')}
+                  </span>
+                </h1>
+
+                {/* Tagline */}
+                <p className="text-white/60 text-lg mb-6 font-light">{currentApp.tagline}</p>
+
+                {/* Description */}
+                <p className="text-white/40 text-base leading-relaxed mb-8 max-w-md max-lg:mx-auto">
+                  {currentApp.description}
+                </p>
+
+                {/* Tech Pills */}
+                <div className="flex flex-wrap gap-2 mb-8 max-lg:justify-center">
+                  {currentApp.technologies.map((tech, i) => (
+                    <span key={i} className="px-4 py-2 text-xs font-mono text-white/40 bg-white/[0.03] rounded-full border border-white/[0.05]">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* CTAs */}
+                <div className="flex gap-4 max-lg:justify-center flex-wrap">
+                  {currentApp.platforms.android && (
+                    <a href={currentApp.platforms.android} target="_blank" rel="noopener noreferrer"
+                      className="group px-6 py-3.5 bg-[#00FD9A] rounded-xl transition-all duration-300 hover:scale-105">
+                      <div className="flex items-center gap-3 text-[#09090b] font-semibold text-sm">
+                        <FaGooglePlay size={16} />
+                        <span>Play Store</span>
+                        <BsArrowUpRight className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" size={12} />
+                      </div>
+                    </a>
+                  )}
+                  {currentApp.platforms.website && (
+                    <a href={currentApp.platforms.website} target="_blank" rel="noopener noreferrer"
+                      className="group px-6 py-3.5 rounded-xl border border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300 flex items-center gap-3 text-white/60 hover:text-white text-sm">
+                      <FaGlobe size={14} />
+                      <span className="font-medium">Website</span>
+                    </a>
+                  )}
+                  {currentApp.platforms.github && (
+                    <a href={currentApp.platforms.github} target="_blank" rel="noopener noreferrer"
+                      className="group px-6 py-3.5 rounded-xl border border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300 flex items-center gap-3 text-white/60 hover:text-white text-sm">
+                      <FaGithub size={14} />
+                      <span className="font-medium">GitHub</span>
+                    </a>
+                  )}
+                  {!currentApp.platforms.android && !currentApp.platforms.ios && !currentApp.platforms.website && !currentApp.platforms.github && (
+                    <span className="px-6 py-3.5 rounded-xl border border-white/[0.05] text-white/30 text-sm font-medium">
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Right: Phone Display */}
+              <div className="col-span-7 max-lg:col-span-1 max-lg:order-1 relative">
+                <div className="relative h-[650px] max-lg:h-[500px] max-mobile:h-[420px] flex items-center justify-center">
+
+                  <div className="relative w-full max-w-2xl mx-auto">
+
+                    {/* Back left phone */}
+                    <div
+                      className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 opacity-30 blur-[1px] max-lg:hidden"
+                      style={{
+                        transform: `translate(${-32 + mousePosition.x * 0.5}px, ${-50 + mousePosition.y * 0.5}%) rotateY(15deg) rotateX(5deg)`,
+                        transformStyle: 'preserve-3d'
+                      }}
+                    >
+                      <div className="w-[140px] h-[280px] rounded-[1.5rem] overflow-hidden border border-white/10">
+                        <img src={currentApp.screenshots[(activeScreenshot + currentApp.screenshots.length - 1) % currentApp.screenshots.length]} alt="" className="w-full h-full object-cover" />
+                      </div>
+                    </div>
+
+                    {/* Back right phone */}
+                    <div
+                      className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 opacity-30 blur-[1px] max-lg:hidden"
+                      style={{
+                        transform: `translate(${32 + mousePosition.x * 0.5}px, ${-50 + mousePosition.y * 0.5}%) rotateY(-15deg) rotateX(5deg)`,
+                        transformStyle: 'preserve-3d'
+                      }}
+                    >
+                      <div className="w-[140px] h-[280px] rounded-[1.5rem] overflow-hidden border border-white/10">
+                        <img src={currentApp.screenshots[(activeScreenshot + 1) % currentApp.screenshots.length]} alt="" className="w-full h-full object-cover" />
+                      </div>
+                    </div>
+
+                    {/* Center main phone */}
+                    <div
+                      className="relative z-20 mx-auto"
+                      style={{
+                        transform: `translate(${mousePosition.x * 0.3}px, ${mousePosition.y * 0.3}px)`,
+                      }}
+                    >
+                      <div className="relative w-[260px] h-[540px] mx-auto max-mobile:w-[200px] max-mobile:h-[420px]">
+                        <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-[3px] max-mobile:rounded-[2rem]">
+                          <div className="w-full h-full rounded-[2.35rem] bg-[#0c0c0c] p-2 max-mobile:rounded-[1.85rem]">
+                            {/* Dynamic Island */}
+                            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-30 flex items-center justify-center gap-2 max-mobile:w-16 max-mobile:h-5">
+                              <div className="w-1.5 h-1.5 rounded-full bg-zinc-800" />
+                              <div className="w-2.5 h-2.5 rounded-full bg-zinc-800 ring-1 ring-zinc-700" />
+                            </div>
+
+                            {/* Screen */}
+                            <div className="w-full h-full rounded-[2rem] overflow-hidden bg-black max-mobile:rounded-[1.5rem] cursor-pointer relative group"
+                              onClick={() => openModal(currentApp.screenshots[activeScreenshot], activeScreenshot, currentApp.screenshots)}>
+                              <img
+                                src={currentApp.screenshots[activeScreenshot]}
+                                alt="App screenshot"
+                                className="w-full h-full object-cover transition-transform duration-700"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span className="text-white text-sm font-medium">View Gallery</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Side buttons */}
+                        <div className="absolute -left-[2px] top-28 w-[3px] h-6 bg-zinc-700 rounded-l-full" />
+                        <div className="absolute -left-[2px] top-36 w-[3px] h-12 bg-zinc-700 rounded-l-full" />
+                        <div className="absolute -left-[2px] top-52 w-[3px] h-12 bg-zinc-700 rounded-l-full" />
+                        <div className="absolute -right-[2px] top-36 w-[3px] h-16 bg-zinc-700 rounded-r-full" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Screenshot dots */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    {currentApp.screenshots.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveScreenshot(i)}
+                        className={`h-1 rounded-full transition-all duration-500 ${i === activeScreenshot ? 'w-6 bg-[#00FD9A]' : 'w-1 bg-white/20 hover:bg-white/40'}`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* ============ WEB PROJECTS SECTION ============ */}
-      <div>
-        <div className="text-center mb-16 max-mobile:mb-10">
-          <div className="inline-block">
-            <h2 className="text-6xl font-bold text-white mb-3 max-mobile:text-4xl relative">
-              Web Projects
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#00FD9A] via-cyan-400 to-purple-500 rounded-full"></div>
-            </h2>
+            {/* Scroll indicator */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/20">
+              <span className="text-[10px] font-mono tracking-widest uppercase">Scroll</span>
+              <BsArrowDown className="animate-bounce" size={14} />
+            </div>
           </div>
-          <p className="text-[#BDBDC1] mt-4 text-sm">Full-stack web applications</p>
-        </div>
+        </section>
 
-        <div className="flex flex-col gap-24 max-tablet:gap-20">
-          {projectsData.map((project, index) => (
-            <div
-              key={project.id}
-              className="cursor-pointer width flex gap-8 max-tablet:flex-col group"
-            >
-              {/* Left Section - Project Info */}
-              <div className="w-[45%] flex flex-col gap-5 max-tablet:w-full max-mobile:gap-3">
-                <h2 className="font-bold text-7xl text-transparent stroke-text max-mobile:text-6xl group-hover:text-[#00FD9A] transition-colors duration-300">
-                  {project.id}
+        {/* ==================== FEATURES SECTION ==================== */}
+        <section className="py-24 relative overflow-hidden">
+          <div className={`width relative transition-all duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+            {/* Section header */}
+            <div className="text-center mb-16">
+              <span className="text-[#00FD9A] font-mono text-xs tracking-[0.3em] uppercase">Features</span>
+              <h2 className="text-4xl md:text-5xl font-extralight text-white mt-4 mb-4">
+                What <span className="font-medium">{currentApp.title}</span> offers
+              </h2>
+              <p className="text-white/40 max-w-md mx-auto text-sm">Key capabilities that make this app stand out</p>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-mobile:grid-cols-1">
+              {currentApp.features.map((feature, i) => (
+                <div
+                  key={i}
+                  className="group relative p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-500"
+                >
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#00FD9A]/10 text-[#00FD9A] mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon size={18} />
+                  </div>
+                  <h3 className="text-white font-medium text-base mb-1.5">{feature.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed">{feature.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ==================== GALLERY SECTION ==================== */}
+        <section className="py-24 overflow-hidden">
+          <div className={`width mb-10 transition-all duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+            <div className="flex items-end justify-between max-md:flex-col max-md:items-start max-md:gap-3">
+              <div>
+                <span className="text-[#00FD9A] font-mono text-xs tracking-[0.3em] uppercase">Gallery</span>
+                <h2 className="text-3xl md:text-4xl font-extralight text-white mt-3">
+                  {currentApp.title} <span className="font-medium">Screenshots</span>
                 </h2>
-                <p className="font-bold text-white text-[32px] max-mobile:text-[26px] leading-tight">
-                  {project.title}
-                </p>
-                <p className="leading-7 text-[16px] text-[#BDBDC1] max-mobile:text-[13px] max-mobile:leading-6">
-                  {project.description}
-                </p>
-                <div className="flex gap-3 text-[#08c17a] max-mobile:text-[13px] flex-wrap">
-                  {renderTechnologies(project.technologies)}
-                </div>
-                <div className="w-[95%] h-[1px] bg-gradient-to-r from-[#00FD9A] to-transparent"></div>
-                <div className="flex gap-5 max-tablet:mx-auto max-tablet:my-3 max-mobile:my-0">
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="text-white hover:text-[#00FD9A] hover:bg-[#00FD9A]/10 bg-[#33333355] rounded-full p-3 transition-all duration-300 hover:scale-110">
-                      <BsArrowUpRight size={23} />
-                    </div>
-                  </a>
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="text-white hover:text-[#00FD9A] hover:bg-[#00FD9A]/10 bg-[#33333355] rounded-full p-3 transition-all duration-300 hover:scale-110">
-                      <FaGithub size={23} />
-                    </div>
-                  </a>
-                </div>
               </div>
+              <p className="text-white/40 text-xs">Click to view fullscreen</p>
+            </div>
+          </div>
 
-              {/* Right Section - Project Images */}
-              <div
-                className={`flex items-center justify-end ${project.bgColor} relative w-[55%] h-[400px] pt-6 rounded-2xl overflow-hidden
-                  hover:pt-0 transition-all duration-500 ease-in-out shadow-2xl
-                  max-tablet:w-full max-tablet:h-[350px] max-tablet:justify-center max-tablet:bg-[#3330] max-tablet:transition-none max-tablet:pt-0 max-mobile:h-[280px]
-                  group-hover:shadow-[0_0_30px_rgba(0,253,154,0.3)]`}
-                onClick={() => window.open(project.liveUrl, "_blank")}
-              >
-                {/* Desktop Image */}
-                <div className="w-[420px] h-[360px] object-cover transition-all duration-500 ease-in-out 
-                  group-hover:w-[450px] group-hover:h-[385px]
-                  max-tablet:w-full max-tablet:h-full max-tablet:group-hover:w-full max-tablet:group-hover:h-full max-tablet:transition-none 
-                  max-mobile:w-[340px] max-mobile:h-[260px] max-mobile:group-hover:w-[340px] max-mobile:group-hover:h-[260px]">
-                  <img 
-                    src={project.desktopImage} 
-                    alt={`${project.title} desktop view`}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
+          <div className={`relative transition-all duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#09090b] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#09090b] to-transparent z-10 pointer-events-none" />
+
+            <div className="flex gap-5 overflow-x-auto scrollbar-hide px-[5vw] py-6">
+              {currentApp.screenshots.map((screenshot, i) => (
+                <div
+                  key={i}
+                  onClick={() => openModal(screenshot, i, currentApp.screenshots)}
+                  className="flex-shrink-0 group cursor-pointer"
+                >
+                  <div className="relative w-[160px] h-[340px] max-mobile:w-[130px] max-mobile:h-[280px] rounded-[1.5rem] overflow-hidden transition-all duration-500 group-hover:scale-[1.02]">
+                    <div className="relative w-full h-full rounded-[1.5rem] overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors duration-300">
+                      <img src={screenshot} alt={`Screenshot ${i + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div className="absolute bottom-3 left-3 font-mono text-[10px] text-white/50 group-hover:text-white/80 transition-colors duration-300">
+                      {String(i + 1).padStart(2, '0')}
+                    </div>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                {/* Mobile Image Overlay */}
-                <div className={`w-[180px] h-[320px] absolute top-12 ${project.mobilePosition} 
-                  shadow-2xl transition-all duration-500 ease-in-out
-                  group-hover:scale-110 group-hover:top-10
-                  max-tablet:hidden`}>
-                  <img 
-                    src={project.mobileImage} 
-                    alt={`${project.title} mobile view`}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
+        {/* ==================== WEB PROJECTS ==================== */}
+        <section className="py-24 relative">
+          <div className="width">
+            <div className="mb-16">
+              <span className="text-[#00FD9A] font-mono text-xs tracking-[0.3em] uppercase">Web Development</span>
+              <h2 className="text-4xl md:text-5xl font-extralight text-white mt-4">
+                Web <span className="font-medium">Projects</span>
+              </h2>
+            </div>
+
+            <div className="space-y-24">
+              {projectsData.map((project, index) => (
+                <div key={project.id} className="group">
+                  <div className="grid grid-cols-12 gap-8 items-center max-lg:grid-cols-1">
+
+                    <div className={`col-span-7 max-lg:col-span-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                      <div
+                        className="relative aspect-[16/10] rounded-2xl overflow-hidden cursor-pointer group/img"
+                        onClick={() => window.open(project.liveUrl, "_blank")}
+                      >
+                        <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/[0.05]">
+                          <img
+                            src={project.desktopImage}
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 via-transparent to-transparent" />
+
+                          <div className="absolute bottom-5 right-5 w-[90px] h-[180px] rounded-xl overflow-hidden border-2 border-white/10 shadow-xl transition-transform duration-500 group-hover/img:scale-105 group-hover/img:-translate-y-2 max-md:hidden">
+                            <img src={project.mobileImage} alt="" className="w-full h-full object-cover" />
+                          </div>
+
+                          <div className="absolute top-5 left-5 px-3 py-1.5 bg-black/40 backdrop-blur-sm rounded-full font-mono text-[10px] text-white/50">
+                            {project.year}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className={`col-span-5 max-lg:col-span-1 ${index % 2 === 1 ? 'lg:order-1 lg:text-right' : ''}`}>
+                      <span className="text-[100px] font-extralight text-white/[0.03] leading-none block -mb-14 max-md:text-7xl max-md:-mb-10">
+                        {project.id}
+                      </span>
+
+                      <span className="text-[#00FD9A] font-mono text-xs tracking-[0.2em] uppercase">
+                        {project.subtitle}
+                      </span>
+
+                      <h3 className="text-3xl md:text-4xl font-medium text-white mt-2 mb-4">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-white/40 leading-relaxed mb-6 text-sm max-lg:max-w-lg">
+                        {project.description}
+                      </p>
+
+                      <div className={`flex flex-wrap gap-2 mb-8 ${index % 2 === 1 ? 'lg:justify-end' : ''}`}>
+                        {project.technologies.map((tech, i) => (
+                          <span key={i} className="px-3 py-1.5 text-xs font-mono text-white/40 bg-white/[0.03] rounded-full border border-white/[0.05]">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className={`flex gap-3 ${index % 2 === 1 ? 'lg:justify-end' : ''}`}>
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/btn inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/10 hover:border-[#00FD9A]/30 bg-white/[0.02] hover:bg-[#00FD9A]/5 transition-all duration-300 text-white/60 hover:text-[#00FD9A] text-sm"
+                        >
+                          <span className="font-medium">Visit Site</span>
+                          <BsArrowUpRight className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" size={12} />
+                        </a>
+                        {project.githubUrl && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 hover:border-white/20 bg-white/[0.02] text-white/40 hover:text-white transition-all duration-300"
+                          >
+                            <FaGithub size={16} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        {/* ==================== CTA SECTION ==================== */}
+        <section className="py-24">
+          <div className="width">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.05]">
+              <div className="relative py-20 px-8 text-center">
+                <span className="text-[#00FD9A] font-mono text-xs tracking-[0.3em] uppercase">Get in Touch</span>
+
+                <h2 className="text-4xl md:text-5xl font-extralight text-white mt-5 mb-5">
+                  Let's Build Something
+                  <span className="block font-medium text-[#00FD9A]">Extraordinary</span>
+                </h2>
+
+                <p className="text-white/40 mb-10 max-w-md mx-auto text-sm">
+                  Have a project in mind? I'm always excited to discuss new opportunities and bring ideas to life.
+                </p>
+
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#00FD9A] text-[#09090b] font-semibold transition-all duration-300 hover:scale-105 text-sm"
+                >
+                  <span>Start a Conversation</span>
+                  <BsArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
+                </a>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </section>
 
-      {/* Hide scrollbar globally for carousel */}
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+        <style jsx>{`
+          .scrollbar-hide::-webkit-scrollbar { display: none; }
+          .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        `}</style>
       </div>
     </>
   )
