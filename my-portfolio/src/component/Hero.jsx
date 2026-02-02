@@ -75,7 +75,7 @@ const Hero = () => {
   }, [displayText, isDeleting, currentTitle]);
 
   const stats = [
-    { value: "2+", label: "Years" },
+    { value: "3+", label: "Years" },
     { value: "12+", label: "Projects" },
     { value: "1000+", label: "Commits" }
   ];

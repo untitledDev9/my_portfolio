@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const Experience = () => {
   const stats = [
-    { key: 'experience', label: 'Year(s) of experience', target: 2, suffix: '' },
+    { key: 'experience', label: 'Year(s) of experience', target: 3, suffix: '' },
     { key: 'projects', label: 'Projects completed', target: 12, suffix: '' },
     { key: 'tech', label: 'Technologies mastered', target: 6, suffix: '' },
     { key: 'commits', label: 'Code commits', target: 1000, suffix: '+' }
