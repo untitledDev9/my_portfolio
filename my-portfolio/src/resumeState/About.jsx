@@ -1,26 +1,62 @@
 import React from 'react'
 
 const About = () => {
+  const personalInfo = [
+    { label: 'Name', value: 'Ahmed Suleiman' },
+    { label: 'Experience', value: '2+ Year(s)' },
+    { label: 'Nationality', value: 'Nigeria' },
+    { label: 'Freelance', value: 'Available', highlight: true },
+  ]
+
+  const contactInfo = [
+    { label: 'WhatsApp', value: '(+234) 909 132 4697', href: 'https://wa.me/2349091324697' },
+    { label: 'GitHub', value: 'UntitledDev9', href: 'https://github.com/untitledDev9' },
+    { label: 'Email', value: 'ahmedsuleiman940@gmail.com', href: 'mailto:ahmedsuleiman940@gmail.com' },
+    { label: 'Languages', value: 'English' },
+  ]
+
+  const InfoItem = ({ label, value, href, highlight }) => {
+    const content = (
+      <div className='group flex items-center justify-between gap-4 py-4 border-b border-white/[0.05] last:border-0
+        hover:border-white/[0.1] transition-colors duration-300'>
+        <span className='text-white/35 text-[13px] uppercase tracking-wider font-mono max-mobile:text-[11px]'>
+          {label}
+        </span>
+        <span className={`text-[15px] max-mobile:text-[13px] font-medium text-right ${
+          highlight ? 'text-[#00FD9A]' : 'text-white'
+        } ${href ? 'group-hover:text-[#00FD9A] transition-colors duration-300' : ''}`}>
+          {value}
+        </span>
+      </div>
+    )
+
+    if (href) {
+      return <a href={href} target="_blank" rel="noopener noreferrer">{content}</a>
+    }
+    return content
+  }
+
   return (
     <div>
-      <div>
-        <h2 className='text-white text-[43px] max-Laptop:text-[40px]'>About me</h2>
-        <p className=' text-[14px] text-[#BDBDC1] leading-7 
-        max-Laptop:text-[13px] max-Laptop:leading-5
-        '>I make smooth, fast web interfaces and enjoy turning ideas into real things. Always learning, always building..</p>
+      <div className='mb-8 max-mobile:mb-6'>
+        <h2 className='text-white text-[40px] max-Laptop:text-[33px] max-mobile:text-[28px] font-bold mb-2'>
+          About Me
+        </h2>
+        <p className='text-[15px] text-white/40 leading-relaxed max-Laptop:text-[13px] max-w-lg'>
+          I make smooth, fast web interfaces and enjoy turning ideas into real things. Always learning, always building.
+        </p>
       </div>
-      <div className=' flex gap-14 mt-10 max-Laptop:gap-10 max-mobile:gap-6 max-mobile:flex-col'>
-        <div className='text-[13px] text-[#BDBDC1] flex flex-col gap-5 max-mobile:text-[11px]'>
-          <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Name <span className=' text-white text-[16px] max-mobile:text-[13px]'>Ahmed Suleiman</span></p>
-          <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Experience <span className=' text-white text-[16px] max-mobile:text-[13px]'>2+ Year(s)</span></p>
-          <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Nationality <span className=' text-white text-[16px] max-mobile:text-[13px]'>Nigeria</span></p>
-          <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Freelance <span className=' text-white text-[16px] max-mobile:text-[13px]'>Available</span></p>
+
+      <div className='grid grid-cols-2 gap-8 max-mobile:grid-cols-1 max-mobile:gap-6'>
+        <div className='bg-white/[0.02] border border-white/[0.05] rounded-2xl px-6 py-2 max-mobile:px-4'>
+          {personalInfo.map((item, index) => (
+            <InfoItem key={index} {...item} />
+          ))}
         </div>
-        <div className='text-[13px] text-[#BDBDC1] flex flex-col gap-5'>
-          <a href="https://wa.me/2349091324697" target="_blank" rel="noopener noreferrer"> <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>WhatsApp <span className=' text-white text-[16px] max-mobile:text-[13px]'>(+234) 909 132 4697</span></p></a>
-          <a href="https://github.com/untitledDev9"><p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>GitHub <span className=' text-white text-[16px] max-mobile:text-[13px]'>UntitledDev9</span></p></a>
-          <a href="mailto:ahmedsuleiman940@gmail.com"> <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Email <span className=' text-white text-[16px] max-mobile:text-[13px]'>ahmedsuleiman940@gmail.com</span></p></a>
-          <p className='flex gap-4 max-Laptop:flex-col max-Laptop:items-start max-Laptop:gap-1 items-center max-mobile:flex-row max-mobile:items-center max-mobile:gap-6'>Languages <span className=' text-white text-[16px] max-mobile:text-[13px]'>English</span></p>
+        <div className='bg-white/[0.02] border border-white/[0.05] rounded-2xl px-6 py-2 max-mobile:px-4'>
+          {contactInfo.map((item, index) => (
+            <InfoItem key={index} {...item} />
+          ))}
         </div>
       </div>
     </div>

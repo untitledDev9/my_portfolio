@@ -1,66 +1,53 @@
 import React from 'react'
 
 const Experience = () => {
+  const experiences = [
+    { date: 'Feb 2026 - April 2026', title: 'Next.js Frontend Developer Intern', company: 'Giftseon' },
+    { date: 'Jan 2026 - March 2026', title: 'Frontend & UI/UX Mobile Developer Intern', company: 'Isabi Tech' },
+    { date: 'Sep 2025 - Present', title: 'Founder & Software Developer', company: 'Gadgetvault' },
+    { date: 'Mar 2025 - Dec 2025', title: 'Dev Team Lead', company: 'Stainless Technology' },
+    { date: 'May 2024 - Nov 2024', title: 'Frontend Developer', company: 'Renbo Studio' },
+  ]
+
   return (
-    <div className=' '>
-      <div>
-        <h2 className=' text-white text-[43px]
-        max-Laptop:text-[35px]
-        max-mobile:text-[32px]
-        '>My Expereience</h2>
-        <p className=' text-[#BDBDC1] leading-7 mb-5
-        max-Laptop:text-[13px] max-Laptop:leading-5 max-mobile:mb-9
-        '>I don’t just write code — I’ve built and deployed websites, solved real bugs, and worked across the stack when needed. </p>
+    <div>
+      <div className='mb-8 max-mobile:mb-6'>
+        <h2 className='text-white text-[40px] max-Laptop:text-[33px] max-mobile:text-[28px] font-bold mb-2'>
+          My Experience
+        </h2>
+        <p className='text-[15px] text-white/40 leading-relaxed max-Laptop:text-[13px] max-w-lg'>
+          I don't just write code — I've built and deployed websites, solved real bugs, and worked across the stack when needed.
+        </p>
       </div>
 
-      <div className=' grid gap-5 grid-cols-2  h-[300px] overflow-hidden overflow-y-auto custom-scroll
-      max-mobile:grid-cols-1
-      '>
+      <div className='flex flex-col gap-4 max-h-[420px] overflow-y-auto custom-scroll pr-2'>
+        {experiences.map((exp, index) => (
+          <div
+            key={index}
+            className='group relative bg-white/[0.03] border border-white/[0.06] rounded-2xl px-7 py-6
+              max-Laptop:px-5 max-Laptop:py-5 max-mobile:px-4 max-mobile:py-4
+              hover:border-[#00FD9A]/20 hover:bg-white/[0.05] transition-all duration-400
+              hover:shadow-[0_4px_20px_rgba(0,253,154,0.08)]'
+          >
+            {/* Left accent bar */}
+            <div className='absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-[#00FD9A]/20 group-hover:bg-[#00FD9A]/60 transition-colors duration-400' />
 
-        <div className=' bg-[#28272B] shadow-[0_4px_5px_rgba(0,253,154,0.3)] px-6 max-Laptop:px-4 py-5 w-full h-[160px] flex justify-between flex-col gap-4'>
-          <div className=' grid gap-2'>
-            <p className='text-[#08c17a] max-Laptop:text-[13px]'>2025</p>
-            <h1 className='max-Laptop:text-[14px] text-[17px] text-white'>Freelance Web Developer</h1>
+            <div className='flex items-start justify-between gap-4 max-mobile:flex-col max-mobile:gap-2'>
+              <div className='flex flex-col gap-1.5'>
+                <h3 className='text-white text-[16px] max-Laptop:text-[14px] font-medium leading-snug'>
+                  {exp.title}
+                </h3>
+                <div className='flex items-center gap-2'>
+                  <div className='w-1.5 h-1.5 rounded-full bg-[#00FD9A]' />
+                  <p className='text-white/50 text-[13px] max-Laptop:text-[12px]'>{exp.company}</p>
+                </div>
+              </div>
+              <span className='text-[#00FD9A] text-[13px] max-Laptop:text-[12px] font-mono whitespace-nowrap shrink-0'>
+                {exp.date}
+              </span>
+            </div>
           </div>
-          <div className=' flex items-center gap-2'>
-            <div className=' text-3xl w-1 h-1 rounded-full bg-[#00FD9A]'></div>
-            <p className='max-Laptop:text-[12px] text-[#BDBDC1]'>Wallect Connect.</p>
-          </div>
-        </div>
-
-        <div className=' bg-[#28272B] shadow-[0_4px_5px_rgba(0,253,154,0.3)] px-6 max-Laptop:px-4 py-5 w-full h-[160px] flex justify-between flex-col gap-4'>
-          <div className=' grid gap-2'>
-            <p className='text-[#08c17a] max-Laptop:text-[13px]'>Summer 2024</p>
-            <h1 className='max-Laptop:text-[14px] text-[17px] text-white'>Teaching Assistant</h1>
-          </div>
-          <div className=' flex items-center gap-2 '>
-            <div className=' text-3xl w-1 h-1 rounded-full bg-[#00FD9A]'></div>
-            <p className='max-Laptop:text-[12px] text-[#BDBDC1]'>Untitled Dev</p>
-          </div>
-        </div>
-
-         <div className=' bg-[#28272B] shadow-[0_4px_5px_rgba(0,253,154,0.3)] px-6 max-Laptop:px-4 py-5 w-full h-[160px] flex justify-between flex-col gap-4'>
-          <div className=' grid gap-2'>
-            <p className='text-[#08c17a] max-Laptop:text-[13px]'>2021 - 2024</p>
-            <h1 className='max-Laptop:text-[14px] text-[17px] text-white'>Computer Engineer & Sales Assistant</h1>
-          </div>
-          <div className=' flex items-center gap-2'>
-            <div className=' text-3xl w-1 h-1 rounded-full bg-[#00FD9A]'></div>
-            <p className='max-Laptop:text-[12px] text-[#BDBDC1]'>Whales Tech.</p>
-          </div>
-        </div>
-
-        <div className=' bg-[#28272B] shadow-[0_4px_5px_rgba(0,253,154,0.3)] px-6 max-Laptop:px-4 py-5 w-full h-[160px] flex justify-between flex-col gap-4'>
-          <div className=' grid gap-2'>
-            <p className='text-[#08c17a] max-Laptop:text-[13px]'>2019 - 2023</p>
-            <h1 className='max-Laptop:text-[14px] text-[17px] text-white'>Personal Assistant</h1>
-          </div>
-          <div className=' flex items-center gap-2'>
-            <div className=' text-3xl w-1 h-1 rounded-full bg-[#00FD9A]'></div>
-            <p className='max-Laptop:text-[11px] text-[#BDBDC1]'>JB Wine & Liquor Store.</p>
-          </div>
-        </div>
-
+        ))}
       </div>
     </div>
   )

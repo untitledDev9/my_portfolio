@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { BsArrowUpRight, BsChevronLeft, BsChevronRight, BsX, BsArrowRight, BsArrowDown } from "react-icons/bs";
 import { FaGithub, FaGlobe, FaGooglePlay } from "react-icons/fa";
-import { HiSparkles, HiShieldCheck, HiChatAlt2, HiLocationMarker, HiUserGroup, HiBadgeCheck, HiHome, HiCurrencyDollar } from "react-icons/hi";
+import { HiSparkles, HiShieldCheck, HiChatAlt2, HiLocationMarker, HiUserGroup, HiBadgeCheck, HiHome, HiCurrencyDollar, HiOutlineCalendar, HiOutlineFilm, HiOutlineShoppingCart, HiOutlineHeart, HiOutlineUser, HiOutlineBell } from "react-icons/hi";
 
 // GadgetVault app screenshots
 import add from '../assets/mobile/gv/add.jpg'
@@ -144,6 +144,30 @@ const Projects = () => {
       },
       screenshots: [one, two, three, four, five, six, seven],
     },
+
+    {
+      id: "04",
+      title: "Mowdministries Church App",
+      tagline: "Connect, Engage & Grow Spiritually",
+      description: "A mobile app designed for Mowdministries to provide spiritual content, events, donations, and community engagement all in one platform.",
+      technologies: ["React Native", "Expo", "Firebase", "Stripe/Paystack"],
+      features: [
+        { icon: HiSparkles, title: "Home Dashboard", desc: "Welcome greetings, highlighted banners, and quick access to events, media, shop, and donations." },
+        { icon: HiOutlineCalendar, title: "Events & Outreach", desc: "Browse events, RSVP, ticket registration, countdowns, and Zoom integration." },
+        { icon: HiOutlineFilm, title: "Media & Teaching Library", desc: "Access sermons, teachings, worship music; supports playback, bookmarking, and offline download." },
+        { icon: HiOutlineShoppingCart, title: "Shop", desc: "Purchase inspirational books and albums with multi-language support and secure checkout." },
+        { icon: HiOutlineHeart, title: "Donations & Campaigns", desc: "In-app donations, campaign tracking, giving history, and digital receipts." },
+        { icon: HiOutlineUser, title: "User Profile & Settings", desc: "Manage profile, notifications, language, dark/light mode, and membership forms." },
+        { icon: HiOutlineBell, title: "Push Notifications", desc: "Receive alerts for new media, events, live streams, and donation campaigns." }
+      ],
+      platforms: {
+        ios: "https://apps.apple.com/app/mowdministries",      // placeholder
+        android: "https://play.google.com/store/apps/details?id=com.mowdministries", // placeholder
+        github: null, // not public
+        website: null
+      },
+      screenshots: [one, ]
+    }
     // ============================================
     // ADD MORE APPS HERE - Just copy this template
     // ============================================
@@ -192,19 +216,19 @@ const Projects = () => {
       mobileImage: sharplookMobile,   // Replace with your imported mobile image
       year: "2026"
     },
-  {
-    id: "03",
-    title: "ST Tech Lab",
-    subtitle: "Corporate / Tech Services Website",
-    description: "Official website for ST Tech Lab — a tech solutions provider offering software, IT services, and digital products.",
-    technologies: ["React.js", "Tailwind.css", "HTML", "CSS", "JavaScript"],
-    liveUrl: "https://sttechlab.com/",
-    githubUrl: "", // add GitHub repo URL if available
-    desktopImage: sttechlabDesktop,
-    mobileImage: sttechlabMobile,
-    year: "2025"
-  }
-];
+    {
+      id: "03",
+      title: "ST Tech Lab",
+      subtitle: "Corporate / Tech Services Website",
+      description: "Official website for ST Tech Lab — a tech solutions provider offering software, IT services, and digital products.",
+      technologies: ["React.js", "Tailwind.css", "HTML", "CSS", "JavaScript"],
+      liveUrl: "https://sttechlab.com/",
+      githubUrl: "", // add GitHub repo URL if available
+      desktopImage: sttechlabDesktop,
+      mobileImage: sttechlabMobile,
+      year: "2025"
+    }
+  ];
 
 
   // Auto-rotate screenshots for current app
@@ -284,8 +308,8 @@ const Projects = () => {
                   key={app.id}
                   onClick={() => switchApp(index)}
                   className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${index === activeAppIndex
-                      ? 'bg-[#00FD9A] text-[#09090b]'
-                      : 'bg-white/[0.03] text-white/50 hover:text-white hover:bg-white/[0.06] border border-white/[0.05]'
+                    ? 'bg-[#00FD9A] text-[#09090b]'
+                    : 'bg-white/[0.03] text-white/50 hover:text-white hover:bg-white/[0.06] border border-white/[0.05]'
                     }`}
                 >
                   {app.title}

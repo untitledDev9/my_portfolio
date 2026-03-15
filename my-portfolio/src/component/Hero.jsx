@@ -175,7 +175,7 @@ const Hero = () => {
           {/* CTA Section */}
           <div className='flex gap-6 items-center max-tablet:flex-col max-tablet:gap-5'>
             {/* Download CV Button with Shimmer */}
-            <a href="/AhmedCV.pdf" download className='group relative overflow-hidden'>
+            <a href="/ahmedSresume.pdf" download className='group relative overflow-hidden'>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
               <button className='relative text-black bg-[#00FD9A] border-2 border-[#00FD9A] 
                 px-6 py-3 rounded-full flex items-center gap-3 font-bold

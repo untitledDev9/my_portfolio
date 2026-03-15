@@ -145,7 +145,7 @@ const Resume = () => {
         aria-labelledby={activeSection}
       >
         {/* Content Card */}
-        <div className='relative bg-white/[0.02] rounded-3xl p-10 max-mobile:p-6 border border-white/[0.05] min-h-[520px]'>
+        <div className='relative bg-white/[0.02] rounded-3xl p-10 max-mobile:p-6 border border-white/[0.05] min-h-[560px]'>
           
           {/* Top accent line */}
           <div className='absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#00FD9A]/30 to-transparent' />
