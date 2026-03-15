@@ -301,20 +301,68 @@ const Projects = () => {
         {/* ==================== APP SWITCHER ==================== */}
         {appsData.length > 1 && (
           <div className="width pt-10">
-            <div className="flex items-center gap-2 max-mobile:flex-wrap max-mobile:justify-center">
-              <span className="text-white/30 text-xs font-mono uppercase tracking-wider mr-4 max-mobile:w-full max-mobile:text-center max-mobile:mb-2">Apps</span>
-              {appsData.map((app, index) => (
-                <button
-                  key={app.id}
-                  onClick={() => switchApp(index)}
-                  className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${index === activeAppIndex
-                    ? 'bg-[#00FD9A] text-[#09090b]'
-                    : 'bg-white/[0.03] text-white/50 hover:text-white hover:bg-white/[0.06] border border-white/[0.05]'
-                    }`}
-                >
-                  {app.title}
-                </button>
-              ))}
+            {/* Switcher heading */}
+            <div className="flex items-center justify-between mb-4 max-mobile:flex-col max-mobile:gap-2">
+              <div className="flex items-center gap-3">
+                <span className="text-white text-sm font-semibold tracking-wide">My Apps</span>
+                <span className="px-2 py-0.5 rounded-md bg-[#00FD9A]/10 text-[#00FD9A] text-[11px] font-mono font-bold">
+                  {appsData.length}
+                </span>
+              </div>
+              <p className="text-white/30 text-xs font-mono flex items-center gap-2">
+                <span className="inline-block w-4 h-px bg-white/20" />
+                Tap to explore each app
+                <span className="inline-block w-4 h-px bg-white/20" />
+              </p>
+            </div>
+
+            {/* App cards */}
+            <div className="flex gap-3 max-mobile:flex-col">
+              {appsData.map((app, index) => {
+                const isActive = index === activeAppIndex;
+                return (
+                  <button
+                    key={app.id}
+                    onClick={() => switchApp(index)}
+                    className={`group relative flex-1 px-5 py-4 rounded-2xl text-left transition-all duration-400 overflow-hidden
+                      ${isActive
+                        ? 'bg-[#00FD9A]/10 border-2 border-[#00FD9A]/50'
+                        : 'bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.15] hover:bg-white/[0.04]'
+                      }`}
+                  >
+                    {/* Active indicator line */}
+                    {isActive && (
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#00FD9A]" />
+                    )}
+
+                    {/* Pulse ring on inactive tabs to draw attention */}
+                    {!isActive && (
+                      <div className="absolute top-3 right-3 flex items-center justify-center">
+                        <span className="absolute w-2 h-2 rounded-full bg-[#00FD9A]/40 animate-ping" />
+                        <span className="relative w-1.5 h-1.5 rounded-full bg-[#00FD9A]/60" />
+                      </div>
+                    )}
+
+                    <div className="flex items-center gap-3">
+                      {/* Number badge */}
+                      <span className={`text-2xl font-black font-mono leading-none transition-colors duration-300
+                        ${isActive ? 'text-[#00FD9A]' : 'text-white/10 group-hover:text-white/20'}`}>
+                        {app.id}
+                      </span>
+                      <div>
+                        <p className={`text-sm font-semibold transition-colors duration-300
+                          ${isActive ? 'text-[#00FD9A]' : 'text-white/60 group-hover:text-white'}`}>
+                          {app.title}
+                        </p>
+                        <p className={`text-[11px] mt-0.5 transition-colors duration-300
+                          ${isActive ? 'text-white/40' : 'text-white/20'}`}>
+                          {app.tagline}
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}

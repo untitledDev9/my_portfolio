@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Experience from '../resumeState/Experience';
 import Education from '../resumeState/Education';
 import Skill from '../resumeState/Skill';
@@ -8,46 +9,16 @@ import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 
 const Resume = () => {
   const [activeSection, setActiveSection] = useState('experience');
-  const [isVisible, setIsVisible] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const handleSectionChange = (sectionId) => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setActiveSection(sectionId);
-      setIsTransitioning(false);
-    }, 150);
+    setActiveSection(sectionId);
   };
 
   const sections = [
-    { 
-      id: 'experience', 
-      label: 'Experience', 
-      component: Experience,
-      icon: FaBriefcase,
-    },
-    { 
-      id: 'education', 
-      label: 'Training', 
-      component: Education,
-      icon: FaGraduationCap,
-    },
-    { 
-      id: 'skill', 
-      label: 'Skills', 
-      component: Skill,
-      icon: FaCode,
-    },
-    { 
-      id: 'about', 
-      label: 'About me', 
-      component: About,
-      icon: FaUser,
-    }
+    { id: 'experience', label: 'Experience', component: Experience, icon: FaBriefcase },
+    { id: 'education', label: 'Training', component: Education, icon: FaGraduationCap },
+    { id: 'skill', label: 'Skills', component: Skill, icon: FaCode },
+    { id: 'about', label: 'About me', component: About, icon: FaUser }
   ];
 
   const activeIndex = sections.findIndex(section => section.id === activeSection);
@@ -56,19 +27,44 @@ const Resume = () => {
 
   return (
     <div id='resume' className='relative width flex justify-between mt-20 gap-16 mb-30 max-tablet:flex-col max-tablet:items-center max-tablet:gap-12'>
-      
+
       {/* Left Section - Navigation */}
-      <div className={`w-[42%] max-tablet:w-full max-tablet:flex max-tablet:flex-col max-tablet:items-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-        
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className='w-[42%] max-tablet:w-full max-tablet:flex max-tablet:flex-col max-tablet:items-center'
+      >
         {/* Header */}
         <div className='max-tablet:text-center mb-12 max-tablet:mb-10'>
-          <span className='text-[#00FD9A] font-mono text-xs tracking-[0.3em] uppercase'>Resume</span>
-          <h2 className='text-5xl text-white leading-tight max-tablet:w-full max-mobile:text-4xl font-extralight mt-3 mb-4'>
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className='text-[#00FD9A] font-mono text-xs tracking-[0.3em] uppercase'
+          >
+            Resume
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className='text-5xl text-white leading-tight max-tablet:w-full max-mobile:text-4xl font-extralight mt-3 mb-4'
+          >
             Why hire <span className='font-medium'>me</span><span className='text-[#00FD9A]'>?</span>
-          </h2>
-          <p className='text-white/40 text-base leading-relaxed max-tablet:mx-auto max-mobile:text-sm max-w-md'>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className='text-white/40 text-base leading-relaxed max-tablet:mx-auto max-mobile:text-sm max-w-md'
+          >
             Clean code, quick solutions, always learning, always improving. Let's build something great together.
-          </p>
+          </motion.p>
         </div>
 
         {/* Navigation Tabs */}
@@ -76,10 +72,16 @@ const Resume = () => {
           {sections.map((section, index) => {
             const Icon = section.icon;
             const isActive = activeSection === section.id;
-            
+
             return (
-              <button
+              <motion.button
                 key={section.id}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.08 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => handleSectionChange(section.id)}
                 role='tab'
                 aria-selected={isActive}
@@ -87,41 +89,47 @@ const Resume = () => {
                 className={`
                   group relative py-4 px-5 w-full rounded-2xl text-left cursor-pointer
                   transition-all duration-300
-                  ${isActive 
-                    ? 'bg-[#00FD9A] text-[#09090b]' 
+                  ${isActive
+                    ? 'bg-[#00FD9A] text-[#09090b]'
                     : 'bg-white/[0.02] text-white/50 hover:bg-white/[0.05] hover:text-white border border-white/[0.05]'
                   }
                 `}
               >
                 <div className='flex items-center gap-4'>
-                  {/* Icon */}
                   <div className={`
                     p-2.5 rounded-xl transition-all duration-300
-                    ${isActive 
-                      ? 'bg-[#09090b]/10 text-[#09090b]' 
+                    ${isActive
+                      ? 'bg-[#09090b]/10 text-[#09090b]'
                       : 'bg-white/[0.05] text-[#00FD9A]'
                     }
                   `}>
                     <Icon size={18} />
                   </div>
-                  
-                  {/* Label */}
                   <span className='text-[15px] font-medium tracking-wide'>
                     {section.label}
                   </span>
-
-                  {/* Arrow for active */}
                   {isActive && (
-                    <BsArrowRight className='ml-auto' size={16} />
+                    <motion.div
+                      layoutId="tab-arrow"
+                      className='ml-auto'
+                    >
+                      <BsArrowRight size={16} />
+                    </motion.div>
                   )}
                 </div>
-              </button>
+              </motion.button>
             );
           })}
         </nav>
 
         {/* Progress Indicator */}
-        <div className='mt-10 w-full max-w-[420px] max-tablet:mt-8'>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.6 }}
+          className='mt-10 w-full max-w-[420px] max-tablet:mt-8'
+        >
           <div className='flex justify-between items-center mb-3'>
             <span className='text-white/30 text-xs font-mono uppercase tracking-wider'>Progress</span>
             <span className='text-white/50 text-xs font-mono'>
@@ -129,49 +137,61 @@ const Resume = () => {
             </span>
           </div>
           <div className='w-full h-1 bg-white/[0.05] rounded-full overflow-hidden'>
-            <div 
-              className='h-full bg-[#00FD9A] transition-all duration-500 ease-out rounded-full'
-              style={{ width: `${((activeIndex + 1) / sections.length) * 100}%` }}
+            <motion.div
+              className='h-full bg-[#00FD9A] rounded-full'
+              animate={{ width: `${((activeIndex + 1) / sections.length) * 100}%` }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
             />
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Right Section - Content */}
-      <div 
-        className={`w-[58%] max-tablet:w-full transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+        className='w-[58%] max-tablet:w-full'
         role='tabpanel'
         id={`${activeSection}-panel`}
         aria-labelledby={activeSection}
       >
         {/* Content Card */}
         <div className='relative bg-white/[0.02] rounded-3xl p-10 max-mobile:p-6 border border-white/[0.05] min-h-[560px]'>
-          
-          {/* Top accent line */}
           <div className='absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#00FD9A]/30 to-transparent' />
-          
-          {/* Content */}
-          <div className={`transition-all duration-300 ${isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
-            {/* Section header */}
-            <div className='flex items-center gap-3 mb-8 max-mobile:mb-6'>
-              <div className='p-3 rounded-xl bg-[#00FD9A]/10'>
-                <activeSection_.icon className='text-[#00FD9A]' size={20} />
-              </div>
-              <div>
-                <h3 className='text-white text-xl font-medium max-mobile:text-lg'>
-                  {activeSection_.label}
-                </h3>
-              </div>
-            </div>
 
-            {/* Component content */}
-            {ActiveComponent && <ActiveComponent />}
+          {/* Section header */}
+          <div className='flex items-center gap-3 mb-8 max-mobile:mb-6'>
+            <div className='p-3 rounded-xl bg-[#00FD9A]/10'>
+              <activeSection_.icon className='text-[#00FD9A]' size={20} />
+            </div>
+            <div>
+              <h3 className='text-white text-xl font-medium max-mobile:text-lg'>
+                {activeSection_.label}
+              </h3>
+            </div>
           </div>
+
+          {/* Animated content switch */}
+          <AnimatePresence mode='wait'>
+            <motion.div
+              key={activeSection}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            >
+              {ActiveComponent && <ActiveComponent />}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Navigation Controls */}
         <div className='flex justify-between items-center mt-6 gap-4 max-mobile:flex-col'>
-          <button
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => {
               const prevIndex = (activeIndex - 1 + sections.length) % sections.length;
               handleSectionChange(sections[prevIndex].id);
@@ -182,9 +202,11 @@ const Resume = () => {
           >
             <BsArrowLeft className='group-hover:-translate-x-1 transition-transform duration-300' size={16} />
             <span className='text-sm font-medium'>Previous</span>
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => {
               const nextIndex = (activeIndex + 1) % sections.length;
               handleSectionChange(sections[nextIndex].id);
@@ -195,9 +217,9 @@ const Resume = () => {
           >
             <span className='text-sm'>Next Section</span>
             <BsArrowRight className='group-hover:translate-x-1 transition-transform duration-300' size={16} />
-          </button>
+          </motion.button>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
