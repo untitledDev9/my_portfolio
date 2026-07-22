@@ -227,6 +227,18 @@ const Projects = () => {
       desktopImage: sttechlabDesktop,
       mobileImage: sttechlabMobile,
       year: "2025"
+    },
+    {
+      id: "04",
+      title: "CheckAmm",
+      subtitle: "SaaS Platform",
+      description: "Web platform for CheckAmm — a device protection SaaS with a device registry, marketplace, and diagnostics tools.",
+      technologies: ["Next.js", "TypeScript"],
+      liveUrl: "https://checkamm.com",
+      githubUrl: "",
+      desktopImage: sharplookDesktop,
+      mobileImage: sharplookMobile,
+      year: "2026"
     }
   ];
 
