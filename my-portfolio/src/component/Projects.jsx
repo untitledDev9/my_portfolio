@@ -231,13 +231,13 @@ const Projects = () => {
     {
       id: "04",
       title: "CheckAmm",
-      subtitle: "SaaS Platform",
-      description: "Web platform for CheckAmm — a device protection SaaS with a device registry, marketplace, and diagnostics tools.",
-      technologies: ["Next.js", "TypeScript"],
+      subtitle: "SaaS Platform — Device Registry & Marketplace",
+      description: "Web platform for CheckAmm — a device protection SaaS combining a device registry (Vault), IMEI risk verification, a trusted marketplace, and free in-browser diagnostics tools. Shares the same backend and account system as the CheckAmm mobile app.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
       liveUrl: "https://checkamm.com",
-      githubUrl: "",
-      desktopImage: sharplookDesktop,
-      mobileImage: sharplookMobile,
+      githubUrl: "", // TODO: add GitHub repo URL if making it public
+      desktopImage: sharplookDesktop, // TODO: replace with real CheckAmm desktop screenshot
+      mobileImage: sharplookMobile,   // TODO: replace with real CheckAmm mobile screenshot
       year: "2026"
     }
   ];
